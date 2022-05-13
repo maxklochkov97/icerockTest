@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Icerock" customModuleProvider="target">
+            <connections>
+                <outlet property="singInButton" destination="cDv-63-XxD" id="s5U-wx-d0D"/>
+                <outlet property="tokenTextField" destination="2bj-oJ-JTM" id="hJE-q2-D4j"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-qz-Nxy">
+                    <rect key="frame" x="159" y="119" width="96" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="96" id="2B5-BX-rZq"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="96" id="7za-Ak-9bC"/>
+                        <constraint firstAttribute="width" constant="96" id="BHj-sm-OdY"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="C3t-hE-Qyu"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="D6v-XL-gGm"/>
+                        <constraint firstAttribute="height" constant="96" id="OPd-gn-PJZ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="96" id="TCP-7C-9fW"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="y25-si-yrp"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDv-63-XxD">
+                    <rect key="frame" x="16" y="798" width="382" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="18P-oW-BQH"/>
+                        <constraint firstAttribute="height" constant="48" id="HE0-JJ-qBL"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Sing In">
+                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="baseBackgroundColor" red="0.40392160420000001" green="0.57254904510000004" blue="0.36470589040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tapSingInButton:" destination="-1" eventType="touchUpInside" id="vHX-Fa-uHY"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Personal access token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bj-oJ-JTM">
+                    <rect key="frame" x="16" y="263" width="382" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="48" id="Cmv-iU-yxm"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="NxJ-vC-RyT"/>
+                        <constraint firstAttribute="height" constant="48" id="Zus-KE-IWT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cDv-63-XxD" secondAttribute="trailing" constant="16" id="1zP-3o-raE"/>
+                <constraint firstItem="cDv-63-XxD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="G3L-nb-Hqz"/>
+                <constraint firstItem="2bj-oJ-JTM" firstAttribute="top" secondItem="WtK-qz-Nxy" secondAttribute="bottom" constant="48" id="Jul-hp-zOJ"/>
+                <constraint firstItem="WtK-qz-Nxy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="asc-mG-h8S"/>
+                <constraint firstItem="2bj-oJ-JTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="c6r-37-zel"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cDv-63-XxD" secondAttribute="bottom" constant="16" id="h6u-cg-3YB"/>
+                <constraint firstItem="WtK-qz-Nxy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="75" id="lPi-r4-zzC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2bj-oJ-JTM" secondAttribute="trailing" constant="16" id="xHO-of-mIq"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Logo" width="252" height="252"/>
+    </resources>
+</document>
