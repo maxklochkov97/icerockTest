@@ -20,7 +20,6 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        appRepository.getPublicRepositories(forName: "maxklochkov97/repos")
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -59,26 +58,19 @@ class AuthViewController: UIViewController {
     }
 
     @IBAction func tapSingInButton(_ sender: Any) {
-        print(#function)
+
+//        guard let token = tokenTextField.text else { return }
+//
+//        appRepository.getPrivateRepositories(token: token) { arrayRepo, error in
+//            guard let arrayRepo = arrayRepo else { return }
+//            print(arrayRepo)
+//        }
+
+        let newVC = RepositoriesListViewController()
+        self.navigationController?.pushViewController(newVC, animated: true)
     }
 
-    private func setupView() {
-        tokenTextField.layer.borderWidth = 1
-        tokenTextField.layer.borderColor = UIColor.colorTwo.cgColor
-        tokenTextField.layer.cornerRadius = 8
-        tokenTextField.textColor = .white
-        tokenTextField.attributedPlaceholder = NSAttributedString(
-            string: "Personal access token",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.translucentWhite]
-        )
-        tokenTextField.leftView = UIView(frame: CGRect(x: 0, y: 10, width: 10, height: tokenTextField.frame.height))
-        tokenTextField.leftViewMode = .always
-
-        setNeedsStatusBarAppearanceUpdate()
-
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
-
+    private func keyboardObservers() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
@@ -90,5 +82,30 @@ class AuthViewController: UIViewController {
             selector: #selector(keyboardWillHide),
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
+    }
+
+    private func setupTokenTextField() {
+        tokenTextField.layer.borderWidth = 1
+        tokenTextField.layer.borderColor = UIColor.colorTwo.cgColor
+        tokenTextField.layer.cornerRadius = 8
+        tokenTextField.textColor = .white
+        tokenTextField.attributedPlaceholder = NSAttributedString(
+            string: "Personal access token",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.translucentWhite]
+        )
+        tokenTextField.leftView = UIView(frame: CGRect(x: 0, y: 10, width: 10, height: tokenTextField.frame.height))
+        tokenTextField.leftViewMode = .always
+    }
+
+    private func tapToBackground() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    private func setupView() {
+        setNeedsStatusBarAppearanceUpdate()
+        setupTokenTextField()
+        keyboardObservers()
+        tapToBackground()
     }
 }
