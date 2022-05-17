@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import Alamofire
 
-class LoginViewController: UIViewController {
+class AuthViewController: UIViewController {
 
     @IBOutlet weak var tokenTextField: UITextField!
     @IBOutlet weak var singInButton: UIButton!
     private var isKeyboardAppeared = false
     private var oldSingInButtonHeight: CGFloat?
 
+    private let appRepository = AppRepository()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        appRepository.getPublicRepositories(forName: "maxklochkov97/repos")
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
