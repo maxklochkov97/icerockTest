@@ -59,15 +59,21 @@ class AuthViewController: UIViewController {
 
     @IBAction func tapSingInButton(_ sender: Any) {
 
-//        guard let token = tokenTextField.text else { return }
-//
-//        appRepository.getPrivateRepositories(token: token) { arrayRepo, error in
-//            guard let arrayRepo = arrayRepo else { return }
-//            print(arrayRepo)
-//        }
+        guard let token = tokenTextField.text else { return }
+        var arrayRepo = [Repo]()
 
-        let newVC = RepositoriesListViewController()
-        self.navigationController?.pushViewController(newVC, animated: true)
+        appRepository.getPrivateRepositories(token: token) { [weak self] answer in
+            switch answer {
+            case .success(let data):
+                arrayRepo = data
+                let newVC = RepositoriesListViewController()
+                newVC.configure(with: arrayRepo)
+                self?.navigationController?.pushViewController(newVC, animated: true)
+            case.failure(let error):
+                print(error.localizedDescription)
+                //self?.addAlert(error: error.localizedDescription)
+            }
+        }
     }
 
     private func keyboardObservers() {

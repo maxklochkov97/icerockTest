@@ -8,16 +8,14 @@
 import UIKit
 
 class RepoTableViewCell: UITableViewCell {
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func configure(width repo: Repo) {
+        self.headerLabel.text = repo.name
+        self.languageLabel.text = repo.language
+        self.descriptionLabel.text = repo.description
+        self.descriptionLabel.numberOfLines = 3
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

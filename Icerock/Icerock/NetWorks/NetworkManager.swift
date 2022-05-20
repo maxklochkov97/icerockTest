@@ -15,12 +15,14 @@ enum NetworkServiceError: Error {
 
 class AppRepository {
     // maxklochkov97 : $ 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
+    // https://api.github.com/users/maxklochkov97/repos
+
     var networkServiceError: NetworkServiceError?
     var mainURL = "https://api.github.com/user/repos"
 
-    func getPrivateRepositories(token: String, completion: @escaping (Array<Repo>?, Error?) -> Void) {
+    func getPrivateRepositories(token: String, completion: @escaping (Result<[Repo], Error>) -> Void) {
 
-        let headers: HTTPHeaders? = ["Authorization": "Token \(token)"]
+        let headers: HTTPHeaders? = ["Authorization": "Token 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"]
 
         AF.request(self.mainURL, method: .get, headers: headers).validate().response { responseData in
 
@@ -34,11 +36,11 @@ class AppRepository {
                 if repo.count == 0 {
                     self.networkServiceError = .isEmpty
                 }
-                completion(repo, nil)
+                completion(.success(repo))
             } catch {
                 print("Error decoding == \(error.localizedDescription)")
                 self.networkServiceError = .noData
-                completion([], nil)
+                completion(.failure(NetworkServiceError.noData))
             }
         }
     }
