@@ -11,20 +11,22 @@ enum NetworkServiceError: Error {
     case noData
     case noInternet
     case isEmpty
+    case invalidToken
 }
 
-class AppRepository {
+class NetworkManager {
     // maxklochkov97 : $ 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
     // https://api.github.com/users/maxklochkov97/repos
 
-    var networkServiceError: NetworkServiceError?
-    var mainURL = "https://api.github.com/user/repos"
+    static var userDefaults = UserDefaults()
+    static var networkServiceError: NetworkServiceError?
 
-    func getPrivateRepositories(token: String, completion: @escaping (Result<[Repo], Error>) -> Void) {
+    static func getRepositories(token: String, completion: @escaping (Result<[Repo], Error>) -> Void) {
 
-        let headers: HTTPHeaders? = ["Authorization": "Token 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"]
+        let headers: HTTPHeaders? = ["Authorization": "Token \(token)"]
+        let mainURL = "https://api.github.com/user/repos"
 
-        AF.request(self.mainURL, method: .get, headers: headers).validate().response { responseData in
+        AF.request(mainURL, method: .get, headers: headers).validate().response { responseData in
 
             guard let data = responseData.data else {
                 self.networkServiceError = .noData
@@ -38,19 +40,14 @@ class AppRepository {
                 }
                 completion(.success(repo))
             } catch {
-                print("Error decoding == \(error.localizedDescription)")
                 self.networkServiceError = .noData
-                completion(.failure(NetworkServiceError.noData))
+                completion(.failure(error))
             }
         }
     }
 
-     func getRepositories(completion: @escaping (Array<Repo>?, Error?) -> Void) {
-         // TODO:
-     }
-
      func getRepository(repoId: String, completion: @escaping (RepoDetails?, Error?) -> Void) {
-        // TODO:
+         
      }
 
      func getRepositoryReadme(ownerName: String, repositoryName: String, branchName: String, completion: @escaping (String?, Error?) -> Void) {

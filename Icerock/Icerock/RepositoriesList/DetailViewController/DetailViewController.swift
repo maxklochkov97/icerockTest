@@ -7,7 +7,11 @@
 
 import UIKit
 
+// Сделать загрузку данных при инициализации, а то не свежие данные
+
 class DetailViewController: UIViewController {
+
+    var savedToken: String?
 
     @IBOutlet weak var linkLabel: UILabel!
     @IBOutlet weak var licenseLabel: UILabel!
@@ -16,11 +20,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var watchersCountLabel: UILabel!
 
     var currentRepo: Repo?
+    var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        setupLinkLabel()
+        //setupView()
+        loadData()
+        //setupLinkLabel()
     }
 
     private func setupLinkLabel() {
@@ -38,7 +44,7 @@ class DetailViewController: UIViewController {
         UIApplication.shared.open(url)
     }
 
-    func setupView() {
+    private func setupView() {
         self.navigationItem.title = currentRepo?.name
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -51,5 +57,27 @@ class DetailViewController: UIViewController {
         self.starsCountLabel.text = String(currentRepo?.stars ?? 0)
         self.forksCountLabel.text = String(currentRepo?.forks ?? 0)
         self.watchersCountLabel.text = String(currentRepo?.watchers ?? 0)
+    }
+
+    private func loadData() {
+
+        guard let savedToken = savedToken else  {return }
+
+        NetworkManager.getRepositories(token: savedToken) { [weak self] answer in
+            switch answer {
+            case .success(let data):
+                var index2 = 0
+                print(data)
+                if let repo = data.firstIndex(where: { $0.id == self?.index }) {
+                    index2 = repo
+                    print(repo)
+                }
+                self?.currentRepo = data[index2]
+                self?.setupView()
+                self?.setupLinkLabel()
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

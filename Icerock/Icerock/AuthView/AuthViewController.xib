@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController" customModule="Icerock" customModuleProvider="target">
             <connections>
+                <outlet property="blurEffectView" destination="EiO-TE-Zxw" id="oOK-H4-sRf"/>
+                <outlet property="downloadImage" destination="aVg-sF-mK8" id="S68-7w-VYC"/>
+                <outlet property="invalidTokenLabel" destination="Ygl-Gf-tfz" id="KcA-cQ-JbR"/>
                 <outlet property="singInButton" destination="cDv-63-XxD" id="s5U-wx-d0D"/>
                 <outlet property="tokenTextField" destination="2bj-oJ-JTM" id="hJE-q2-D4j"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -58,14 +61,41 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid token" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygl-Gf-tfz">
+                    <rect key="frame" x="26" y="317" width="372" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.73725497719999999" green="0.34117650989999998" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="aVg-sF-mK8">
+                    <rect key="frame" x="194.5" y="809.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="JTQ-xs-nmo"/>
+                        <constraint firstAttribute="width" constant="25" id="dsS-3A-bKK"/>
+                    </constraints>
+                </imageView>
+                <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-TE-Zxw">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wy8-Us-ylJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="systemChromeMaterialDark"/>
+                </visualEffectView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cDv-63-XxD" secondAttribute="trailing" constant="16" id="1zP-3o-raE"/>
+                <constraint firstItem="aVg-sF-mK8" firstAttribute="centerY" secondItem="cDv-63-XxD" secondAttribute="centerY" id="78C-Si-L0k"/>
+                <constraint firstItem="aVg-sF-mK8" firstAttribute="centerX" secondItem="cDv-63-XxD" secondAttribute="centerX" id="ADY-jo-1Xf"/>
                 <constraint firstItem="cDv-63-XxD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="G3L-nb-Hqz"/>
                 <constraint firstItem="2bj-oJ-JTM" firstAttribute="top" secondItem="WtK-qz-Nxy" secondAttribute="bottom" constant="48" id="Jul-hp-zOJ"/>
+                <constraint firstItem="Ygl-Gf-tfz" firstAttribute="leading" secondItem="2bj-oJ-JTM" secondAttribute="leading" constant="10" id="MpY-zs-N7g"/>
+                <constraint firstItem="Ygl-Gf-tfz" firstAttribute="trailing" secondItem="2bj-oJ-JTM" secondAttribute="trailing" id="Rzo-1z-p6K"/>
                 <constraint firstItem="WtK-qz-Nxy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="asc-mG-h8S"/>
+                <constraint firstItem="Ygl-Gf-tfz" firstAttribute="top" secondItem="2bj-oJ-JTM" secondAttribute="bottom" constant="6" id="bN7-cV-0dw"/>
                 <constraint firstItem="2bj-oJ-JTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="c6r-37-zel"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cDv-63-XxD" secondAttribute="bottom" constant="16" id="h6u-cg-3YB"/>
                 <constraint firstItem="WtK-qz-Nxy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="75" id="lPi-r4-zzC"/>
@@ -76,5 +106,6 @@
     </objects>
     <resources>
         <image name="Logo" width="252" height="252"/>
+        <image name="download" width="24" height="24"/>
     </resources>
 </document>

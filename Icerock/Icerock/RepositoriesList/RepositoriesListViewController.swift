@@ -8,14 +8,18 @@
 import UIKit
 
 class RepositoriesListViewController: UIViewController {
+    var savedToken: String?
+
     private var modelRepo: [Repo] = [Repo]()
     private var networkServiceError: NetworkServiceError? = nil
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         setupTableView()
     }
+
 
     private func setupTableView() {
         self.tableView.delegate = self
@@ -23,14 +27,28 @@ class RepositoriesListViewController: UIViewController {
         self.tableView.register(UINib(nibName: RepoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RepoTableViewCell.identifier)
     }
 
-    func configure(with array: [Repo]) {
-        self.navigationItem.title = "Repositories"
+    private func setupNavBar() {
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundColor = .colorFive
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
-        
+
+        let rightFilterButton = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(tabBackButton))
+        rightFilterButton.tintColor = .white
+        navigationItem.rightBarButtonItem = rightFilterButton
+
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.navigationItem.title = "Repositories"
+    }
+
+    @objc private func tabBackButton() {
+        //UserDefaults.standard.removeObject(forKey: "token")
+        NetworkManager.userDefaults.removeObject(forKey: "token")
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    func configure(with array: [Repo]) {
         self.modelRepo = array
     }
     
@@ -54,16 +72,13 @@ extension RepositoriesListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if networkServiceError == nil {
-
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: RepoTableViewCell.identifier,
                 for: indexPath) as? RepoTableViewCell else {
                 return UITableViewCell()
             }
-
             cell.configure(width: modelRepo[indexPath.row])
             cell.selectionStyle = .none
-            //cell.buttonAllPhotoDelegate = self
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             return cell
         } else {
@@ -73,8 +88,9 @@ extension RepositoriesListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newView = DetailViewController()
-        // newView.configure(width: modelRepo[indexPath.row])
         newView.currentRepo = modelRepo[indexPath.row]
+        newView.index = modelRepo[indexPath.row].id
+        newView.savedToken = self.savedToken
         navigationController?.pushViewController(newView, animated: true)
     }
 }
