@@ -24,6 +24,7 @@
 		5FDADE8F282E416C0037B2C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDADE8D282E416C0037B2C3 /* LaunchScreen.storyboard */; };
 		5FDADEA0282E53A70037B2C3 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDADE9E282E53A70037B2C3 /* AuthViewController.xib */; };
 		5FDADEA3282E58330037B2C3 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDADEA2282E58330037B2C3 /* Extension+UIColor.swift */; };
+		5FE42EE7283BBB7E00F02FCC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE42EE6283BBB7E00F02FCC /* Reachability.swift */; };
 		D7F6829866F1AD7010F835A5 /* Pods_Icerock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72538E464DA0765A0BF129B5 /* Pods_Icerock.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		5FDADE9D282E53A70037B2C3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		5FDADE9E282E53A70037B2C3 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		5FDADEA2282E58330037B2C3 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		5FE42EE6283BBB7E00F02FCC /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		72538E464DA0765A0BF129B5 /* Pods_Icerock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Icerock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B698BE3D10323277606385DB /* Pods-Icerock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Icerock.release.xcconfig"; path = "Target Support Files/Pods-Icerock/Pods-Icerock.release.xcconfig"; sourceTree = "<group>"; };
 		EAAE835002A7C31954E63CE5 /* Pods-Icerock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Icerock.debug.xcconfig"; path = "Target Support Files/Pods-Icerock/Pods-Icerock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				5FCD5B33283237ED00F43761 /* NetworkManager.swift */,
+				5FE42EE6283BBB7E00F02FCC /* Reachability.swift */,
 			);
 			path = NetWorks;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				5FDADE83282E416B0037B2C3 /* AppDelegate.swift in Sources */,
 				5FDADE85282E416B0037B2C3 /* SceneDelegate.swift in Sources */,
+				5FE42EE7283BBB7E00F02FCC /* Reachability.swift in Sources */,
 				5F1A9D092833C3D0004A8798 /* RepoTableViewCell.swift in Sources */,
 				5FCD5B3628324C6600F43761 /* Repo.swift in Sources */,
 				5F86401B28368E9900BF423F /* AuthViewController.swift in Sources */,

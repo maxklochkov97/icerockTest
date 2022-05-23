@@ -12,6 +12,7 @@ class RepositoriesListViewController: UIViewController {
 
     private var modelRepo: [Repo] = [Repo]()
     private var networkServiceError: NetworkServiceError? = nil
+    private let reachability = try! Reachability()
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -20,6 +21,22 @@ class RepositoriesListViewController: UIViewController {
         setupTableView()
     }
 
+    deinit {
+        reachability.stopNotifier()
+    }
+
+    private func networkErrors() {
+        DispatchQueue.main.async {
+            self.reachability.whenUnreachable = { _ in
+                print("Not reachable")
+            }
+            do {
+                try self.reachability.startNotifier()
+            } catch {
+                print("Unable to start notifier")
+            }
+        }
+    }
 
     private func setupTableView() {
         self.tableView.delegate = self

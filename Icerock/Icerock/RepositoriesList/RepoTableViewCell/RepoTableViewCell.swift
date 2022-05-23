@@ -17,5 +17,14 @@ class RepoTableViewCell: UITableViewCell {
         self.languageLabel.text = repo.language
         self.descriptionLabel.text = repo.description
         self.descriptionLabel.numberOfLines = 3
+
+        switch self.languageLabel.text {
+        case "Swift":
+            self.languageLabel.textColor = .colorSeven
+        case "HTML":
+            self.languageLabel.textColor = .green
+        default:
+            break
+        }
     }
 }
