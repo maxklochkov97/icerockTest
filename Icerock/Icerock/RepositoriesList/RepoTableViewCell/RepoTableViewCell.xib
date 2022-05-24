@@ -18,6 +18,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFX-sQ-MZg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
+                        <color key="backgroundColor" red="0.13333332540000001" green="0.14901961389999999" blue="0.1725490093" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="qID-3s-ckG"/>
+                        </constraints>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GmN-Os-hJl">
                         <rect key="frame" x="16" y="16" width="288" height="36"/>
                         <subviews>
@@ -46,13 +53,26 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHs-v5-qhd">
+                        <rect key="frame" x="0.0" y="67.5" width="320" height="0.5"/>
+                        <color key="backgroundColor" red="0.13333332540000001" green="0.14901961389999999" blue="0.1725490093" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="2dp-eK-YKr"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
+                    <constraint firstItem="FFX-sQ-MZg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BIv-dH-eVz"/>
+                    <constraint firstAttribute="trailing" secondItem="rHs-v5-qhd" secondAttribute="trailing" id="Hl7-tV-hng"/>
                     <constraint firstItem="GmN-Os-hJl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MU9-DF-Jg0"/>
+                    <constraint firstItem="rHs-v5-qhd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="c1J-In-LIr"/>
                     <constraint firstItem="GmN-Os-hJl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="irI-Nw-iN3"/>
                     <constraint firstAttribute="bottom" secondItem="GmN-Os-hJl" secondAttribute="bottom" constant="16" id="lxD-zg-BFA"/>
+                    <constraint firstAttribute="trailing" secondItem="FFX-sQ-MZg" secondAttribute="trailing" id="muq-j0-zyo"/>
                     <constraint firstAttribute="trailing" secondItem="GmN-Os-hJl" secondAttribute="trailing" constant="16" id="rJc-uV-lZZ"/>
+                    <constraint firstItem="FFX-sQ-MZg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vXe-8Z-Jut"/>
+                    <constraint firstAttribute="bottom" secondItem="rHs-v5-qhd" secondAttribute="bottom" id="zLh-0P-p2s"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

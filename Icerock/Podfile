@@ -3,5 +3,7 @@ platform :ios, '13.0'
 target 'Icerock' do
   use_frameworks!
   pod 'Alamofire'
+  pod 'Down'
+
 
 end

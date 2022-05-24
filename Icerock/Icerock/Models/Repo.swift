@@ -20,6 +20,10 @@ struct Repo: Decodable  {
     var watchers: Int?
     var stars: Int?
 
+    //var owner: [OwnerDetails]?
+    var fullName: String?
+    var defaultBranch: String?
+
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case language = "language"
@@ -31,7 +35,15 @@ struct Repo: Decodable  {
         case forks = "forks_count"
         case stars = "stargazers_count"
         case license = "license"
+
+        case fullName = "full_name"
+        case defaultBranch = "default_branch"
+        
     }
+}
+
+struct OwnerDetails {
+
 }
 
 struct RepoDetails: Decodable {

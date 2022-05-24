@@ -149,11 +149,28 @@ class AuthViewController: UIViewController {
     private func addAlert(error: String) {
         blurEffectView.isHidden = false
 
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        let attributedTitle = NSAttributedString(string: "Error", attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17),
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ])
+
+        let attributedMessage = NSAttributedString(string: error, attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15),
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+        ])
+
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+
         let okAlert = UIAlertAction(title: "Ok", style: .default) { _ in
             self.blurEffectView.isHidden = true
             self.dismiss(animated: true)
         }
+        
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.colorFive
+        alert.view.tintColor = UIColor.colorFour
+
         alert.addAction(okAlert)
         present(alert, animated: true)
     }

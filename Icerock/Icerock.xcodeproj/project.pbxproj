@@ -11,7 +11,6 @@
 		5F1A9D052833AA3E004A8798 /* RepositoriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A9D032833AA3E004A8798 /* RepositoriesListViewController.xib */; };
 		5F1A9D092833C3D0004A8798 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A9D072833C3D0004A8798 /* RepoTableViewCell.swift */; };
 		5F1A9D0A2833C3D0004A8798 /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A9D082833C3D0004A8798 /* RepoTableViewCell.xib */; };
-		5F6FF8512837D16000779FAE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FF8502837D16000779FAE /* File.swift */; };
 		5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85C79D28377C080097EE34 /* DetailViewController.swift */; };
 		5F85C7A028377C080097EE34 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F85C79E28377C080097EE34 /* DetailViewController.xib */; };
 		5F86401B28368E9900BF423F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDADE9D282E53A70037B2C3 /* AuthViewController.swift */; };
@@ -33,7 +32,6 @@
 		5F1A9D032833AA3E004A8798 /* RepositoriesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesListViewController.xib; sourceTree = "<group>"; };
 		5F1A9D072833C3D0004A8798 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
 		5F1A9D082833C3D0004A8798 /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
-		5F6FF8502837D16000779FAE /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5F85C79D28377C080097EE34 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5F85C79E28377C080097EE34 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		5F86401C283693E900BF423F /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 			children = (
 				5FDADEA2282E58330037B2C3 /* Extension+UIColor.swift */,
 				5F86401C283693E900BF423F /* Extension+UIView.swift */,
-				5F6FF8502837D16000779FAE /* File.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -311,7 +308,6 @@
 				5FDADEA3282E58330037B2C3 /* Extension+UIColor.swift in Sources */,
 				5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */,
 				5F86401D283693E900BF423F /* Extension+UIView.swift in Sources */,
-				5F6FF8512837D16000779FAE /* File.swift in Sources */,
 				5FCD5B34283237ED00F43761 /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

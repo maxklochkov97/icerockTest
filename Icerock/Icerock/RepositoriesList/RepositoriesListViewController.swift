@@ -48,6 +48,7 @@ class RepositoriesListViewController: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundColor = .colorFive
+        appearance.shadowImage = UIColor.colorEight.as1ptImage()
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
 
@@ -56,6 +57,8 @@ class RepositoriesListViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightFilterButton
 
         self.navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.backButtonTitle = ""
+
         self.navigationItem.title = "Repositories"
     }
 

@@ -14,6 +14,7 @@
                 <outlet property="licenseLabel" destination="g3Q-q4-Kut" id="Hfs-Bx-chs"/>
                 <outlet property="linkLabel" destination="B6T-XF-ubQ" id="igu-Yj-8Vh"/>
                 <outlet property="starsCountLabel" destination="EXI-qP-EJg" id="Fcy-6b-G1r"/>
+                <outlet property="textLabel" destination="LQn-hu-Ucu" id="kba-VK-T0G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="34W-MA-sRP"/>
                 <outlet property="watchersCountLabel" destination="1Ti-Sa-lek" id="Qjl-zp-5Jz"/>
             </connections>
@@ -132,13 +133,49 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBB-wN-v1d">
+                    <rect key="frame" x="0.0" y="172" width="414" height="690"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfm-gk-21m">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQn-hu-Ucu">
+                                    <rect key="frame" x="18" y="18" width="378" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.050980389119999997" green="0.05882352591" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="LQn-hu-Ucu" secondAttribute="trailing" constant="18" id="EE4-ta-P7I"/>
+                                <constraint firstItem="LQn-hu-Ucu" firstAttribute="top" secondItem="wfm-gk-21m" secondAttribute="top" constant="18" id="cYg-WK-0uN"/>
+                                <constraint firstAttribute="bottom" secondItem="LQn-hu-Ucu" secondAttribute="bottom" constant="18" id="mAE-bD-tFk"/>
+                                <constraint firstItem="LQn-hu-Ucu" firstAttribute="leading" secondItem="wfm-gk-21m" secondAttribute="leading" constant="18" id="qh2-1m-4t4"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wfm-gk-21m" firstAttribute="bottom" secondItem="FAY-1U-Iqg" secondAttribute="bottom" id="8UC-hk-0sM"/>
+                        <constraint firstItem="wfm-gk-21m" firstAttribute="leading" secondItem="FAY-1U-Iqg" secondAttribute="leading" id="AMs-jc-n36"/>
+                        <constraint firstItem="wfm-gk-21m" firstAttribute="trailing" secondItem="FAY-1U-Iqg" secondAttribute="trailing" id="Fg6-FG-jiO"/>
+                        <constraint firstItem="wfm-gk-21m" firstAttribute="top" secondItem="FAY-1U-Iqg" secondAttribute="top" id="HFv-LP-w3e"/>
+                        <constraint firstItem="wfm-gk-21m" firstAttribute="width" secondItem="I8J-F2-I9E" secondAttribute="width" id="Qxa-Mt-yNx"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="FAY-1U-Iqg"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="I8J-F2-I9E"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="NBB-wN-v1d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3D7-um-BLi"/>
                 <constraint firstItem="kbM-bx-kmC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="SJc-C7-PZh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kbM-bx-kmC" secondAttribute="trailing" constant="18" id="szT-aa-ckR"/>
                 <constraint firstItem="kbM-bx-kmC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="18" id="u6u-wf-ccu"/>
+                <constraint firstItem="NBB-wN-v1d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uJv-6B-vb2"/>
+                <constraint firstItem="NBB-wN-v1d" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="vBT-oW-jGV"/>
+                <constraint firstItem="NBB-wN-v1d" firstAttribute="top" secondItem="kbM-bx-kmC" secondAttribute="bottom" constant="18" id="vew-D0-VQ0"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </view>

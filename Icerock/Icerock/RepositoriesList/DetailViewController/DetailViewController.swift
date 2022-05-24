@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Down
 
 // Сделать загрузку данных при инициализации, а то не свежие данные
 
@@ -13,6 +14,7 @@ class DetailViewController: UIViewController {
 
     var savedToken: String?
 
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var linkLabel: UILabel!
     @IBOutlet weak var licenseLabel: UILabel!
     @IBOutlet weak var starsCountLabel: UILabel!
@@ -21,12 +23,60 @@ class DetailViewController: UIViewController {
 
     var currentRepo: Repo?
     var index = 0
+    private var text: String = "" {
+        didSet {
+            let down = Down(markdownString: text)
+            let attributedString = try? down.toAttributedString()
+            self.textLabel.attributedText = attributedString
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupView()
+        setupNavBar()
+        setupView()
         loadData()
-        //setupLinkLabel()
+        setupLinkLabel()
+        downloadReadme()
+    }
+
+    private func setupNavBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .colorFive
+        appearance.shadowImage = UIColor.colorEight.as1ptImage()
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+
+        let rightFilterButton = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(tabExitButton))
+        rightFilterButton.tintColor = .white
+        navigationItem.rightBarButtonItem = rightFilterButton
+    }
+
+    @objc private func tabExitButton() {
+        //UserDefaults.standard.removeObject(forKey: "token")
+        NetworkManager.userDefaults.removeObject(forKey: "token")
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func tabBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    private func downloadReadme() {
+        guard let fullRepoName = currentRepo?.fullName,
+              let branchName = currentRepo?.defaultBranch else { return }
+
+        NetworkManager.getRepositoryReadme(fullRepoName: fullRepoName, branchName: branchName, completion: { path, error in
+            guard let path = path else { return }
+            do {
+                let dictionary = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+                self.text = dictionary
+                self.textLabel.textColor = .white
+            } catch {
+                print("Error = \(error.localizedDescription)")
+            }
+        })
     }
 
     private func setupLinkLabel() {
@@ -57,6 +107,9 @@ class DetailViewController: UIViewController {
         self.starsCountLabel.text = String(currentRepo?.stars ?? 0)
         self.forksCountLabel.text = String(currentRepo?.forks ?? 0)
         self.watchersCountLabel.text = String(currentRepo?.watchers ?? 0)
+        
+        self.textLabel.text = NetworkManager.text
+        self.textLabel.numberOfLines = 0
     }
 
     private func loadData() {
@@ -67,10 +120,10 @@ class DetailViewController: UIViewController {
             switch answer {
             case .success(let data):
                 var index2 = 0
-                print(data)
+                //print(data)
                 if let repo = data.firstIndex(where: { $0.id == self?.index }) {
                     index2 = repo
-                    print(repo)
+                    //print(repo)
                 }
                 self?.currentRepo = data[index2]
                 self?.setupView()
