@@ -11,6 +11,21 @@
 		5F1A9D052833AA3E004A8798 /* RepositoriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A9D032833AA3E004A8798 /* RepositoriesListViewController.xib */; };
 		5F1A9D092833C3D0004A8798 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A9D072833C3D0004A8798 /* RepoTableViewCell.swift */; };
 		5F1A9D0A2833C3D0004A8798 /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A9D082833C3D0004A8798 /* RepoTableViewCell.xib */; };
+		5F20ABD3283D135100090A1A /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F20ABD2283D135100090A1A /* EmptyView.xib */; };
+		5F20ABD6283D136700090A1A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F20ABD5283D136700090A1A /* EmptyView.swift */; };
+		5F20ABD8283D144F00090A1A /* SomethingErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F20ABD7283D144F00090A1A /* SomethingErrorView.xib */; };
+		5F20ABDA283D145800090A1A /* SomethingErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F20ABD9283D145800090A1A /* SomethingErrorView.swift */; };
+		5F20ABDD283E03F300090A1A /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */; };
+		5F24A024283CF94200361A5E /* ConnectionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24A023283CF94200361A5E /* ConnectionErrorView.swift */; };
+		5F24A026283CF96500361A5E /* ConnectionErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F24A025283CF96500361A5E /* ConnectionErrorView.xib */; };
+		5F2E74A5283E18E500E02617 /* UpdateReposDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74A4283E18E500E02617 /* UpdateReposDelegate.swift */; };
+		5F2E74AB283E1FB400E02617 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74AA283E1FB400E02617 /* Extension+UIImageView.swift */; };
+		5F2E74B6283E3EE500E02617 /* DetailConnectionErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E74B5283E3EE500E02617 /* DetailConnectionErrorView.xib */; };
+		5F2E74B8283E3EF600E02617 /* DetailConnectionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74B7283E3EF600E02617 /* DetailConnectionErrorView.swift */; };
+		5F2E74BB283E409A00E02617 /* ReadmeLoadErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E74BA283E409A00E02617 /* ReadmeLoadErrorView.xib */; };
+		5F2E74BF283E40C200E02617 /* ReadmeLoadErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74BE283E40C200E02617 /* ReadmeLoadErrorView.swift */; };
+		5F2E74C2283E466100E02617 /* UpdateDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74C1283E466100E02617 /* UpdateDetailDelegate.swift */; };
+		5F2E74C4283E6E6600E02617 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74C3283E6E6600E02617 /* NetworkMonitor.swift */; };
 		5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85C79D28377C080097EE34 /* DetailViewController.swift */; };
 		5F85C7A028377C080097EE34 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F85C79E28377C080097EE34 /* DetailViewController.xib */; };
 		5F86401B28368E9900BF423F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDADE9D282E53A70037B2C3 /* AuthViewController.swift */; };
@@ -23,7 +38,6 @@
 		5FDADE8F282E416C0037B2C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDADE8D282E416C0037B2C3 /* LaunchScreen.storyboard */; };
 		5FDADEA0282E53A70037B2C3 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDADE9E282E53A70037B2C3 /* AuthViewController.xib */; };
 		5FDADEA3282E58330037B2C3 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDADEA2282E58330037B2C3 /* Extension+UIColor.swift */; };
-		5FE42EE7283BBB7E00F02FCC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE42EE6283BBB7E00F02FCC /* Reachability.swift */; };
 		D7F6829866F1AD7010F835A5 /* Pods_Icerock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72538E464DA0765A0BF129B5 /* Pods_Icerock.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +46,21 @@
 		5F1A9D032833AA3E004A8798 /* RepositoriesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesListViewController.xib; sourceTree = "<group>"; };
 		5F1A9D072833C3D0004A8798 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
 		5F1A9D082833C3D0004A8798 /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
+		5F20ABD2283D135100090A1A /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		5F20ABD5283D136700090A1A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		5F20ABD7283D144F00090A1A /* SomethingErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SomethingErrorView.xib; sourceTree = "<group>"; };
+		5F20ABD9283D145800090A1A /* SomethingErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomethingErrorView.swift; sourceTree = "<group>"; };
+		5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
+		5F24A023283CF94200361A5E /* ConnectionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionErrorView.swift; sourceTree = "<group>"; };
+		5F24A025283CF96500361A5E /* ConnectionErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionErrorView.xib; sourceTree = "<group>"; };
+		5F2E74A4283E18E500E02617 /* UpdateReposDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReposDelegate.swift; sourceTree = "<group>"; };
+		5F2E74AA283E1FB400E02617 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		5F2E74B5283E3EE500E02617 /* DetailConnectionErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailConnectionErrorView.xib; sourceTree = "<group>"; };
+		5F2E74B7283E3EF600E02617 /* DetailConnectionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConnectionErrorView.swift; sourceTree = "<group>"; };
+		5F2E74BA283E409A00E02617 /* ReadmeLoadErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadmeLoadErrorView.xib; sourceTree = "<group>"; };
+		5F2E74BE283E40C200E02617 /* ReadmeLoadErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeLoadErrorView.swift; sourceTree = "<group>"; };
+		5F2E74C1283E466100E02617 /* UpdateDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailDelegate.swift; sourceTree = "<group>"; };
+		5F2E74C3283E6E6600E02617 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		5F85C79D28377C080097EE34 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5F85C79E28377C080097EE34 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		5F86401C283693E900BF423F /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -46,7 +75,6 @@
 		5FDADE9D282E53A70037B2C3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		5FDADE9E282E53A70037B2C3 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		5FDADEA2282E58330037B2C3 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
-		5FE42EE6283BBB7E00F02FCC /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		72538E464DA0765A0BF129B5 /* Pods_Icerock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Icerock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B698BE3D10323277606385DB /* Pods-Icerock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Icerock.release.xcconfig"; path = "Target Support Files/Pods-Icerock/Pods-Icerock.release.xcconfig"; sourceTree = "<group>"; };
 		EAAE835002A7C31954E63CE5 /* Pods-Icerock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Icerock.debug.xcconfig"; path = "Target Support Files/Pods-Icerock/Pods-Icerock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,22 +109,23 @@
 			path = AuthView;
 			sourceTree = "<group>";
 		};
-		5F1A9D012833A847004A8798 /* NetWorks */ = {
+		5F1A9D012833A847004A8798 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
 				5FCD5B33283237ED00F43761 /* NetworkManager.swift */,
-				5FE42EE6283BBB7E00F02FCC /* Reachability.swift */,
+				5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */,
+				5F2E74A4283E18E500E02617 /* UpdateReposDelegate.swift */,
+				5F2E74C1283E466100E02617 /* UpdateDetailDelegate.swift */,
+				5F2E74C3283E6E6600E02617 /* NetworkMonitor.swift */,
 			);
-			path = NetWorks;
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		5F1A9D062833AA4A004A8798 /* RepositoriesList */ = {
 			isa = PBXGroup;
 			children = (
-				5F1A9D022833AA3E004A8798 /* RepositoriesListViewController.swift */,
-				5F1A9D032833AA3E004A8798 /* RepositoriesListViewController.xib */,
-				5F1A9D0B2833C3D6004A8798 /* RepoTableViewCell */,
-				5F85C7A128377C100097EE34 /* DetailViewController */,
+				5F2E74AC283E200600E02617 /* Controlers */,
+				5F24A027283D10DE00361A5E /* View */,
 			);
 			path = RepositoriesList;
 			sourceTree = "<group>";
@@ -110,9 +139,121 @@
 			path = RepoTableViewCell;
 			sourceTree = "<group>";
 		};
+		5F20ABD4283D135900090A1A /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				5F20ABD2283D135100090A1A /* EmptyView.xib */,
+				5F20ABD5283D136700090A1A /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		5F20ABDB283D145C00090A1A /* SomethingErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				5F20ABD7283D144F00090A1A /* SomethingErrorView.xib */,
+				5F20ABD9283D145800090A1A /* SomethingErrorView.swift */,
+			);
+			path = SomethingErrorView;
+			sourceTree = "<group>";
+		};
+		5F24A027283D10DE00361A5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F1A9D0B2833C3D6004A8798 /* RepoTableViewCell */,
+				5F24A028283D10EA00361A5E /* ConnectionErrorView */,
+				5F20ABD4283D135900090A1A /* EmptyView */,
+				5F20ABDB283D145C00090A1A /* SomethingErrorView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F24A028283D10EA00361A5E /* ConnectionErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				5F24A023283CF94200361A5E /* ConnectionErrorView.swift */,
+				5F24A025283CF96500361A5E /* ConnectionErrorView.xib */,
+			);
+			path = ConnectionErrorView;
+			sourceTree = "<group>";
+		};
+		5F2E74A6283E1E3900E02617 /*  Application */ = {
+			isa = PBXGroup;
+			children = (
+				5F2E74A8283E1E6100E02617 /* Controllers */,
+				5F2E74A7283E1E5000E02617 /* View */,
+				5F1A9D012833A847004A8798 /* NetworkManager */,
+			);
+			path = " Application";
+			sourceTree = "<group>";
+		};
+		5F2E74A7283E1E5000E02617 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FDADE8D282E416C0037B2C3 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F2E74A8283E1E6100E02617 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5FDADE82282E416B0037B2C3 /* AppDelegate.swift */,
+				5FDADE84282E416B0037B2C3 /* SceneDelegate.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5F2E74A9283E1E9900E02617 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5FDADEA1282E581F0037B2C3 /* Extension */,
+				5FDADE8B282E416C0037B2C3 /* Assets.xcassets */,
+				5FDADE90282E416C0037B2C3 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		5F2E74AC283E200600E02617 /* Controlers */ = {
+			isa = PBXGroup;
+			children = (
+				5F1A9D022833AA3E004A8798 /* RepositoriesListViewController.swift */,
+				5F1A9D032833AA3E004A8798 /* RepositoriesListViewController.xib */,
+			);
+			path = Controlers;
+			sourceTree = "<group>";
+		};
+		5F2E74AD283E313F00E02617 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F2E74B9283E406600E02617 /* DetailConnectionErrorView */,
+				5F2E74C0283E40C900E02617 /* ReadmeLoadErrorView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F2E74B9283E406600E02617 /* DetailConnectionErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				5F2E74B5283E3EE500E02617 /* DetailConnectionErrorView.xib */,
+				5F2E74B7283E3EF600E02617 /* DetailConnectionErrorView.swift */,
+			);
+			path = DetailConnectionErrorView;
+			sourceTree = "<group>";
+		};
+		5F2E74C0283E40C900E02617 /* ReadmeLoadErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				5F2E74BA283E409A00E02617 /* ReadmeLoadErrorView.xib */,
+				5F2E74BE283E40C200E02617 /* ReadmeLoadErrorView.swift */,
+			);
+			path = ReadmeLoadErrorView;
+			sourceTree = "<group>";
+		};
 		5F85C7A128377C100097EE34 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5F2E74AD283E313F00E02617 /* View */,
 				5F85C79D28377C080097EE34 /* DetailViewController.swift */,
 				5F85C79E28377C080097EE34 /* DetailViewController.xib */,
 			);
@@ -140,13 +281,9 @@
 		5FDADE81282E416B0037B2C3 /* Icerock */ = {
 			isa = PBXGroup;
 			children = (
-				5F1A9D012833A847004A8798 /* NetWorks */,
-				5FDADEA1282E581F0037B2C3 /* Extension */,
-				5FDADE82282E416B0037B2C3 /* AppDelegate.swift */,
-				5FDADE84282E416B0037B2C3 /* SceneDelegate.swift */,
-				5FDADE8B282E416C0037B2C3 /* Assets.xcassets */,
-				5FDADE8D282E416C0037B2C3 /* LaunchScreen.storyboard */,
-				5FDADE90282E416C0037B2C3 /* Info.plist */,
+				5F2E74A9283E1E9900E02617 /* SupportingFiles */,
+				5F2E74A6283E1E3900E02617 /*  Application */,
+				5F85C7A128377C100097EE34 /* DetailViewController */,
 				5F1A9D062833AA4A004A8798 /* RepositoriesList */,
 				5F1A9D002833A82A004A8798 /* AuthView */,
 				5F1A9CFF2833A78F004A8798 /* Models */,
@@ -159,6 +296,7 @@
 			children = (
 				5FDADEA2282E58330037B2C3 /* Extension+UIColor.swift */,
 				5F86401C283693E900BF423F /* Extension+UIView.swift */,
+				5F2E74AA283E1FB400E02617 /* Extension+UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -240,12 +378,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F20ABD3283D135100090A1A /* EmptyView.xib in Resources */,
 				5FDADEA0282E53A70037B2C3 /* AuthViewController.xib in Resources */,
 				5F85C7A028377C080097EE34 /* DetailViewController.xib in Resources */,
 				5FDADE8F282E416C0037B2C3 /* LaunchScreen.storyboard in Resources */,
 				5F1A9D052833AA3E004A8798 /* RepositoriesListViewController.xib in Resources */,
+				5F2E74BB283E409A00E02617 /* ReadmeLoadErrorView.xib in Resources */,
+				5F2E74B6283E3EE500E02617 /* DetailConnectionErrorView.xib in Resources */,
 				5FDADE8C282E416C0037B2C3 /* Assets.xcassets in Resources */,
+				5F20ABD8283D144F00090A1A /* SomethingErrorView.xib in Resources */,
 				5F1A9D0A2833C3D0004A8798 /* RepoTableViewCell.xib in Resources */,
+				5F24A026283CF96500361A5E /* ConnectionErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,15 +442,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FDADE83282E416B0037B2C3 /* AppDelegate.swift in Sources */,
+				5F2E74BF283E40C200E02617 /* ReadmeLoadErrorView.swift in Sources */,
+				5F2E74A5283E18E500E02617 /* UpdateReposDelegate.swift in Sources */,
+				5F20ABD6283D136700090A1A /* EmptyView.swift in Sources */,
+				5F24A024283CF94200361A5E /* ConnectionErrorView.swift in Sources */,
 				5FDADE85282E416B0037B2C3 /* SceneDelegate.swift in Sources */,
-				5FE42EE7283BBB7E00F02FCC /* Reachability.swift in Sources */,
 				5F1A9D092833C3D0004A8798 /* RepoTableViewCell.swift in Sources */,
 				5FCD5B3628324C6600F43761 /* Repo.swift in Sources */,
 				5F86401B28368E9900BF423F /* AuthViewController.swift in Sources */,
 				5F1A9D042833AA3E004A8798 /* RepositoriesListViewController.swift in Sources */,
+				5F2E74B8283E3EF600E02617 /* DetailConnectionErrorView.swift in Sources */,
 				5FDADEA3282E58330037B2C3 /* Extension+UIColor.swift in Sources */,
+				5F2E74AB283E1FB400E02617 /* Extension+UIImageView.swift in Sources */,
+				5F20ABDD283E03F300090A1A /* KeyValueStorage.swift in Sources */,
+				5F20ABDA283D145800090A1A /* SomethingErrorView.swift in Sources */,
 				5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */,
 				5F86401D283693E900BF423F /* Extension+UIView.swift in Sources */,
+				5F2E74C4283E6E6600E02617 /* NetworkMonitor.swift in Sources */,
+				5F2E74C2283E466100E02617 /* UpdateDetailDelegate.swift in Sources */,
 				5FCD5B34283237ED00F43761 /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +604,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D43G9A8437;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Icerock/Info.plist;
+				INFOPLIST_FILE = Icerock/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -482,7 +634,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D43G9A8437;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Icerock/Info.plist;
+				INFOPLIST_FILE = Icerock/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

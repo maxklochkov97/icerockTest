@@ -8,42 +8,46 @@
 import UIKit
 
 class RepositoriesListViewController: UIViewController {
-    var savedToken: String?
-
     private var modelRepo: [Repo] = [Repo]()
     private var networkServiceError: NetworkServiceError? = nil
-    private let reachability = try! Reachability()
     @IBOutlet weak var tableView: UITableView!
-
+    
+    @IBOutlet weak var connectionErrorView: ConnectionErrorView!
+    @IBOutlet weak var emptyView: EmptyView!
+    @IBOutlet weak var somethingErrorView: SomethingErrorView!
+    
+    @IBOutlet weak var downloadImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        connectionErrorView.updateReposDelegate = self
+        emptyView.updateReposDelegate = self
+        somethingErrorView.updateReposDelegate = self
         setupNavBar()
         setupTableView()
     }
 
-    deinit {
-        reachability.stopNotifier()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getRepos()
     }
-
-    private func networkErrors() {
-        DispatchQueue.main.async {
-            self.reachability.whenUnreachable = { _ in
-                print("Not reachable")
-            }
-            do {
-                try self.reachability.startNotifier()
-            } catch {
-                print("Unable to start notifier")
-            }
-        }
+    
+    private func stopAnimate() {
+        downloadImage.layer.removeAllAnimations()
+        downloadImage.isHidden = true
     }
-
+    
+    private func startAnimate() {
+        downloadImage.rotate()
+        downloadImage.isHidden = false
+    }
+    
     private func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: RepoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RepoTableViewCell.identifier)
     }
-
+    
     private func setupNavBar() {
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -51,23 +55,22 @@ class RepositoriesListViewController: UIViewController {
         appearance.shadowImage = UIColor.colorEight.as1ptImage()
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
-
+        
         let rightFilterButton = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(tabBackButton))
         rightFilterButton.tintColor = .white
         navigationItem.rightBarButtonItem = rightFilterButton
-
+        
         self.navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.backButtonTitle = ""
-
+        
         self.navigationItem.title = "Repositories"
     }
-
+    
     @objc private func tabBackButton() {
-        //UserDefaults.standard.removeObject(forKey: "token")
-        NetworkManager.userDefaults.removeObject(forKey: "token")
+        KeyValueStorage.userDefaults.removeObject(forKey: "token")
         self.navigationController?.popViewController(animated: true)
     }
-
+    
     func configure(with array: [Repo]) {
         self.modelRepo = array
     }
@@ -76,27 +79,16 @@ class RepositoriesListViewController: UIViewController {
 
 extension RepositoriesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        if networkServiceError == nil {
-            return modelRepo.count
-        } else if networkServiceError == .isEmpty {
-            return 1
-        } else if networkServiceError == .noInternet {
-            return 1
-        } else if networkServiceError == .noData {
-            return 1
-        } else {
-            return 0
-        }
+        return modelRepo.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if networkServiceError == nil {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: RepoTableViewCell.identifier,
                 for: indexPath) as? RepoTableViewCell else {
-                return UITableViewCell()
-            }
+                    return UITableViewCell()
+                }
             cell.configure(width: modelRepo[indexPath.row])
             cell.selectionStyle = .none
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -105,12 +97,10 @@ extension RepositoriesListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newView = DetailViewController()
-        newView.currentRepo = modelRepo[indexPath.row]
-        newView.index = modelRepo[indexPath.row].id
-        newView.savedToken = self.savedToken
+        newView.configure(with: modelRepo[indexPath.row])
         navigationController?.pushViewController(newView, animated: true)
     }
 }
@@ -118,5 +108,41 @@ extension RepositoriesListViewController: UITableViewDataSource {
 extension RepositoriesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension RepositoriesListViewController: UpdateReposDelegate {
+    func getRepos() {
+        connectionErrorView.isHidden = true
+        emptyView.isHidden = true
+        somethingErrorView.isHidden = true
+        tableView.isHidden = true
+        startAnimate()
+
+        NetworkManager.getRepositories { [weak self] answer in
+            switch answer {
+            case .success(let data):
+                self?.modelRepo = data
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+
+                if data.isEmpty {
+                    self?.emptyView.isHidden = false
+                } else {
+                    self?.tableView.isHidden = false
+                }
+                self?.stopAnimate()
+            case.failure(let error):
+                self?.stopAnimate()
+                switch error.localizedDescription {
+                case "URLSessionTask failed with error: The Internet connection appears to be offline.":
+                    self?.connectionErrorView.isHidden = false
+                default:
+                    self?.somethingErrorView.isHidden = false
+                }
+            }
+        }
     }
 }

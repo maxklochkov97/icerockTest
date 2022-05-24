@@ -109,18 +109,16 @@ class AuthViewController: UIViewController {
 
     @IBAction func tapSingInButton(_ sender: Any) {
 
-        guard let token = tokenTextField.text, !token.isEmpty else { return }
-        guard isValidToken(token) else { return }
+        guard let token = tokenTextField.text, !token.isEmpty, isValidToken(token) else { return }
         startAnimate()
 
-        NetworkManager.getRepositories(token: token) { [weak self] answer in
+        NetworkManager.signIn(token: token) { [weak self] answer in
             switch answer {
-            case .success(let data):
+            case .success(let token):
                 self?.invalidTokenLabel.isHidden = true
+                KeyValueStorage.userDefaults.setValue(token, forKey: "token")
+                KeyValueStorage.authToken = token
                 let newVC = RepositoriesListViewController()
-                newVC.configure(with: data)
-                NetworkManager.userDefaults.setValue(token, forKey: "token")
-                newVC.savedToken = token
                 self?.navigationController?.pushViewController(newVC, animated: true)
                 self?.stopAnimate()
             case.failure(let error):
@@ -131,14 +129,12 @@ class AuthViewController: UIViewController {
     }
 
     private func authorizationBySavedToken() {
-        guard let oldToken = NetworkManager.userDefaults.value(forKey: "token") as? String else { return }
+        guard let oldToken = KeyValueStorage.userDefaults.value(forKey: "token") as? String else { return }
 
-        NetworkManager.getRepositories(token: oldToken) { [weak self] answer in
+        NetworkManager.signIn(token: oldToken) { [weak self] answer in
             switch answer {
-            case .success(let data):
+            case .success(_):
                 let newVC = RepositoriesListViewController()
-                newVC.configure(with: data)
-                newVC.savedToken = oldToken
                 self?.navigationController?.pushViewController(newVC, animated: false)
             case.failure(let error):
                 self?.addAlert(error: error.localizedDescription)
@@ -198,3 +194,33 @@ class AuthViewController: UIViewController {
     }
 
 }
+
+
+/*
+ @IBAction func tapSingInButton(_ sender: Any) {
+
+     guard let token = tokenTextField.text, !token.isEmpty, isValidToken(token) else { return }
+     startAnimate()
+
+     NetworkManager.getRepositories(token: token) { [weak self] answer in
+         switch answer {
+         case .success(let data):
+             self?.invalidTokenLabel.isHidden = true
+             let newVC = RepositoriesListViewController()
+             newVC.configure(with: data)
+             KeyValueStorage.userDefaults.setValue(token, forKey: "token")
+             newVC.savedToken = token
+             self?.navigationController?.pushViewController(newVC, animated: true)
+             self?.stopAnimate()
+         case.failure(let error):
+             self?.stopAnimate()
+//                let errors = "URLSessionTask failed with error: The Internet connection appears to be offline."
+//
+//                if error.localizedDescription == errors {
+//                    print("PPpppp")
+//                }
+             self?.addAlert(error: error.localizedDescription)
+         }
+     }
+ }
+ */

@@ -5,14 +5,21 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Icerock" customModuleProvider="target">
             <connections>
+                <outlet property="detailConnectionErrorView" destination="2nZ-bt-Afl" id="ISs-zs-3Qr"/>
                 <outlet property="forksCountLabel" destination="X4J-71-PRG" id="epH-GB-dje"/>
                 <outlet property="licenseLabel" destination="g3Q-q4-Kut" id="Hfs-Bx-chs"/>
                 <outlet property="linkLabel" destination="B6T-XF-ubQ" id="igu-Yj-8Vh"/>
+                <outlet property="mainDownload" destination="Noq-km-0z4" id="fPd-aE-2jl"/>
+                <outlet property="mainHeaderStack" destination="kbM-bx-kmC" id="LZB-C5-Vua"/>
+                <outlet property="readmeLoadErrorView" destination="nBK-Wz-gxQ" id="C8p-z4-l0W"/>
+                <outlet property="scrollView" destination="NBB-wN-v1d" id="VMG-Uh-Hsh"/>
+                <outlet property="secondaryDownload" destination="KAI-1Q-sSU" id="Ids-r0-CZ8"/>
                 <outlet property="starsCountLabel" destination="EXI-qP-EJg" id="Fcy-6b-G1r"/>
                 <outlet property="textLabel" destination="LQn-hu-Ucu" id="kba-VK-T0G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="34W-MA-sRP"/>
@@ -24,6 +31,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nZ-bt-Afl" customClass="DetailConnectionErrorView" customModule="Icerock" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBK-Wz-gxQ" customClass="ReadmeLoadErrorView" customModule="Icerock" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="172" width="414" height="690"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="KAI-1Q-sSU" userLabel="SecondaryDownload">
+                    <rect key="frame" x="182" y="172" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Bfr-P8-Llp"/>
+                        <constraint firstAttribute="height" constant="50" id="FR3-7Q-674"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="Noq-km-0z4" userLabel="MaidDownload">
+                    <rect key="frame" x="157" y="403" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="eXu-RI-Rn1"/>
+                        <constraint firstAttribute="width" constant="100" id="w8n-cs-W3E"/>
+                    </constraints>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kbM-bx-kmC">
                     <rect key="frame" x="18" y="62" width="378" height="92"/>
                     <subviews>
@@ -170,21 +199,37 @@
             <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="NBB-wN-v1d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3D7-um-BLi"/>
+                <constraint firstItem="2nZ-bt-Afl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6Pi-BO-Wlv"/>
+                <constraint firstItem="KAI-1Q-sSU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Kzf-UJ-0qJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nBK-Wz-gxQ" secondAttribute="bottom" id="SFE-nc-dSq"/>
                 <constraint firstItem="kbM-bx-kmC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="SJc-C7-PZh"/>
+                <constraint firstItem="Noq-km-0z4" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="VDm-pL-K8x"/>
+                <constraint firstItem="KAI-1Q-sSU" firstAttribute="top" secondItem="NBB-wN-v1d" secondAttribute="top" id="VRN-5M-2eW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nBK-Wz-gxQ" secondAttribute="trailing" id="XkZ-vb-WTA"/>
+                <constraint firstItem="nBK-Wz-gxQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iJI-Zg-uZd"/>
+                <constraint firstItem="nBK-Wz-gxQ" firstAttribute="top" secondItem="NBB-wN-v1d" secondAttribute="top" id="jp1-aU-Cwh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2nZ-bt-Afl" secondAttribute="trailing" id="oQU-Cw-dqn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2nZ-bt-Afl" secondAttribute="bottom" id="sZf-aJ-uPk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kbM-bx-kmC" secondAttribute="trailing" constant="18" id="szT-aa-ckR"/>
                 <constraint firstItem="kbM-bx-kmC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="18" id="u6u-wf-ccu"/>
                 <constraint firstItem="NBB-wN-v1d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uJv-6B-vb2"/>
+                <constraint firstItem="Noq-km-0z4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="uKN-sN-0AL"/>
                 <constraint firstItem="NBB-wN-v1d" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="vBT-oW-jGV"/>
                 <constraint firstItem="NBB-wN-v1d" firstAttribute="top" secondItem="kbM-bx-kmC" secondAttribute="bottom" constant="18" id="vew-D0-VQ0"/>
+                <constraint firstItem="2nZ-bt-Afl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zl0-95-Y9m"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </view>
     </objects>
     <resources>
         <image name="Licence" width="24" height="24"/>
+        <image name="download" width="24" height="24"/>
         <image name="fork" width="24" height="24"/>
         <image name="link" width="24" height="24"/>
         <image name="star" width="24" height="24"/>
         <image name="wathes" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
