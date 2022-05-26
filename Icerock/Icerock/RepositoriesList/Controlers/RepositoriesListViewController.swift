@@ -9,27 +9,29 @@ import UIKit
 
 class RepositoriesListViewController: UIViewController {
     private var modelRepo: [Repo] = [Repo]()
-    private var networkServiceError: NetworkServiceError? = nil
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var connectionErrorView: ConnectionErrorView!
     @IBOutlet weak var emptyView: EmptyView!
     @IBOutlet weak var somethingErrorView: SomethingErrorView!
-    
     @IBOutlet weak var downloadImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectionErrorView.updateReposDelegate = self
-        emptyView.updateReposDelegate = self
-        somethingErrorView.updateReposDelegate = self
+        setupView()
         setupNavBar()
         setupTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hiddenView()
         getRepos()
+    }
+
+    private func setupView() {
+        connectionErrorView.updateReposDelegate = self
+        emptyView.updateReposDelegate = self
+        somethingErrorView.updateReposDelegate = self
     }
     
     private func stopAnimate() {
@@ -49,6 +51,8 @@ class RepositoriesListViewController: UIViewController {
     }
     
     private func setupNavBar() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundColor = .colorFive
@@ -56,25 +60,36 @@ class RepositoriesListViewController: UIViewController {
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         
-        let rightFilterButton = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(tabBackButton))
+        let rightFilterButton = UIBarButtonItem(
+            image: UIImage(named: "exit"),
+            style: .plain, target: self,
+            action: #selector(tabBackButton))
         rightFilterButton.tintColor = .white
         navigationItem.rightBarButtonItem = rightFilterButton
+
+        let leftUpdateButton = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.counterclockwise"),
+            style: .done, target: self,
+            action: #selector(tapUpdateButton) )
+
+        leftUpdateButton.tintColor = .white
+        self.navigationItem.leftBarButtonItem = leftUpdateButton
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.backButtonTitle = ""
         
-        self.navigationItem.title = "Repositories"
+        self.navigationItem.title = NSLocalizedString("repositoriesListVC.navigationItem.title", comment: "")
+    }
+
+    @objc private func tapUpdateButton() {
+        hiddenView()
+        getRepos()
     }
     
     @objc private func tabBackButton() {
         KeyValueStorage.userDefaults.removeObject(forKey: "token")
         self.navigationController?.popViewController(animated: true)
     }
-    
-    func configure(with array: [Repo]) {
-        self.modelRepo = array
-    }
-    
 }
 
 extension RepositoriesListViewController: UITableViewDataSource {
@@ -83,19 +98,13 @@ extension RepositoriesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if networkServiceError == nil {
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: RepoTableViewCell.identifier,
-                for: indexPath) as? RepoTableViewCell else {
-                    return UITableViewCell()
-                }
-            cell.configure(width: modelRepo[indexPath.row])
-            cell.selectionStyle = .none
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            return cell
-        } else {
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: RepoTableViewCell.identifier,
+            for: indexPath) as? RepoTableViewCell else {
+                return UITableViewCell()
+            }
+        cell.configure(width: modelRepo[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,13 +121,15 @@ extension RepositoriesListViewController: UITableViewDelegate {
 }
 
 extension RepositoriesListViewController: UpdateReposDelegate {
-    func getRepos() {
+    func hiddenView() {
         connectionErrorView.isHidden = true
         emptyView.isHidden = true
         somethingErrorView.isHidden = true
         tableView.isHidden = true
-        startAnimate()
+    }
 
+    func getRepos() {
+        startAnimate()
         NetworkManager.getRepositories { [weak self] answer in
             switch answer {
             case .success(let data):
@@ -134,14 +145,16 @@ extension RepositoriesListViewController: UpdateReposDelegate {
                     self?.tableView.isHidden = false
                 }
                 self?.stopAnimate()
+
             case.failure(let error):
                 self?.stopAnimate()
-                switch error.localizedDescription {
-                case "URLSessionTask failed with error: The Internet connection appears to be offline.":
-                    self?.connectionErrorView.isHidden = false
-                default:
+                if Network.reachability.isReachable {
                     self?.somethingErrorView.isHidden = false
+                } else {
+                    self?.connectionErrorView.isHidden = false
                 }
+                print("Error in \(#function) == \(error.localizedDescription)")
+
             }
         }
     }

@@ -2,14 +2,14 @@
 //  ConnectionErrorView.swift
 //  Icerock
 //
-//  Created by Максим Клочков on 24.05.2022.
+//  Created by Максим Клочков on 25.05.2022.
 //
 
 import UIKit
 
-class ConnectionErrorView: UIView {
+class DetailConnectionErrorView: UIView {
 
-    weak var updateReposDelegate: UpdateReposDelegate?
+    weak var updateDetailDelegate: UpdateDetailDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +21,11 @@ class ConnectionErrorView: UIView {
     }
 
     @IBAction func tapButton(_ sender: Any) {
-        updateReposDelegate?.hiddenView()
-        updateReposDelegate?.getRepos()
+        print(#function)
+        updateDetailDelegate?.hiddenView()
+        updateDetailDelegate?.loadData()
     }
-    
+
     private func loadNib() {
         guard let xibView = Bundle.main.loadNibNamed("ConnectionErrorView", owner: self, options: nil)![0] as? UIView else {
             return
@@ -32,5 +33,4 @@ class ConnectionErrorView: UIView {
         xibView.frame = self.bounds
         addSubview(xibView)
     }
-
 }

@@ -21,6 +21,7 @@ class EmptyView: UIView {
     }
 
     @IBAction func tapButton(_ sender: Any) {
+        updateReposDelegate?.hiddenView()
         updateReposDelegate?.getRepos()
     }
 

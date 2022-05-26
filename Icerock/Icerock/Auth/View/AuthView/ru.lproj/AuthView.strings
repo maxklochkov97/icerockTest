@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "Personal access token"; ObjectID = "OTj-jb-lyJ"; */
+"OTj-jb-lyJ.placeholder" = "Персональный токен доступа";
+
+/* Class = "UIButton"; configuration.title = "Sing In"; ObjectID = "ZEo-7P-o5C"; */
+"ZEo-7P-o5C.configuration.title" = "Войти";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZEo-7P-o5C"; */
+"ZEo-7P-o5C.normalTitle" = "Войти";
+
+/* Class = "UILabel"; text = "Invalid token"; ObjectID = "b2J-Nq-pV2"; */
+"b2J-Nq-pV2.text" = "Неверный формат токена";

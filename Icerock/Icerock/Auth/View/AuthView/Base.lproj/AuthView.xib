@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthView" customModule="Icerock" customModuleProvider="target">
+            <connections>
+                <outlet property="downloadImage" destination="cOY-ik-2Ib" id="EWd-UB-gLY"/>
+                <outlet property="invalidTokenLabel" destination="b2J-Nq-pV2" id="YJb-On-3QG"/>
+                <outlet property="singInButton" destination="ZEo-7P-o5C" id="G9b-Im-OsA"/>
+                <outlet property="tokenTextField" destination="OTj-jb-lyJ" id="UXK-ou-MGE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LR1-UP-6co">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="oHE-nh-fk2">
+                    <rect key="frame" x="159" y="119" width="96" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="96" id="8cX-MW-OSQ"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="8o1-GY-ou7"/>
+                        <constraint firstAttribute="height" constant="96" id="A9A-QO-zIV"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="96" id="JaZ-w1-n0T"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="V6j-Pd-xb9"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="96" id="gys-TR-zdX"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="s1O-Mw-uEL"/>
+                        <constraint firstAttribute="width" constant="96" id="yfx-1Q-l8O"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEo-7P-o5C">
+                    <rect key="frame" x="16" y="798" width="382" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="aTb-St-TAb"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="id3-wS-mPv"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Sing In">
+                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="baseBackgroundColor" red="0.40392160420000001" green="0.57254904510000004" blue="0.36470589040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tapSingInButton:" destination="-1" eventType="touchUpInside" id="rIW-Oo-yal"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Personal access token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTj-jb-lyJ">
+                    <rect key="frame" x="16" y="263" width="382" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="Ibe-FT-Sok"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="48" id="Xuy-go-Mkd"/>
+                        <constraint firstAttribute="height" constant="48" id="wI2-ZS-cPa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid token" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2J-Nq-pV2">
+                    <rect key="frame" x="26" y="317" width="372" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.73725497719999999" green="0.34117650989999998" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="cOY-ik-2Ib">
+                    <rect key="frame" x="194.5" y="809.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="4Uo-be-VgA"/>
+                        <constraint firstAttribute="height" constant="25" id="Ryt-z2-aSo"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="8ar-Xw-e4g"/>
+            <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="8ar-Xw-e4g" firstAttribute="bottom" secondItem="ZEo-7P-o5C" secondAttribute="bottom" constant="16" id="1fa-QJ-si5"/>
+                <constraint firstItem="cOY-ik-2Ib" firstAttribute="centerY" secondItem="ZEo-7P-o5C" secondAttribute="centerY" id="5g6-PN-26H"/>
+                <constraint firstItem="b2J-Nq-pV2" firstAttribute="top" secondItem="OTj-jb-lyJ" secondAttribute="bottom" constant="6" id="67r-Fn-3r9"/>
+                <constraint firstItem="cOY-ik-2Ib" firstAttribute="centerX" secondItem="ZEo-7P-o5C" secondAttribute="centerX" id="6gK-vd-fz5"/>
+                <constraint firstItem="8ar-Xw-e4g" firstAttribute="trailing" secondItem="OTj-jb-lyJ" secondAttribute="trailing" constant="16" id="IfJ-pS-kE3"/>
+                <constraint firstItem="oHE-nh-fk2" firstAttribute="centerX" secondItem="LR1-UP-6co" secondAttribute="centerX" id="KIQ-59-M4a"/>
+                <constraint firstItem="oHE-nh-fk2" firstAttribute="top" secondItem="8ar-Xw-e4g" secondAttribute="top" constant="75" id="a4Y-ql-KFw"/>
+                <constraint firstItem="OTj-jb-lyJ" firstAttribute="top" secondItem="oHE-nh-fk2" secondAttribute="bottom" constant="48" id="akN-pX-v8w"/>
+                <constraint firstItem="b2J-Nq-pV2" firstAttribute="trailing" secondItem="OTj-jb-lyJ" secondAttribute="trailing" id="hhM-Yb-6hu"/>
+                <constraint firstItem="OTj-jb-lyJ" firstAttribute="leading" secondItem="8ar-Xw-e4g" secondAttribute="leading" constant="16" id="iiq-oV-UqR"/>
+                <constraint firstItem="8ar-Xw-e4g" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZEo-7P-o5C" secondAttribute="trailing" constant="16" id="q9D-oY-WpP"/>
+                <constraint firstItem="ZEo-7P-o5C" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8ar-Xw-e4g" secondAttribute="leading" constant="16" id="ul5-IG-Csd"/>
+                <constraint firstItem="ZEo-7P-o5C" firstAttribute="top" secondItem="b2J-Nq-pV2" secondAttribute="bottom" constant="10" id="upg-A5-T1j"/>
+                <constraint firstItem="b2J-Nq-pV2" firstAttribute="leading" secondItem="OTj-jb-lyJ" secondAttribute="leading" constant="10" id="yUM-D9-kFP"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1fa-QJ-si5"/>
+                    <exclude reference="upg-A5-T1j"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact">
+                <mask key="constraints">
+                    <include reference="upg-A5-T1j"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="1fa-QJ-si5"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Logo" width="252" height="252"/>
+        <image name="download" width="24" height="24"/>
+    </resources>
+</document>

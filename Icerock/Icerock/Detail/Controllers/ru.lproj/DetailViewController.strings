@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "100"; ObjectID = "1Ti-Sa-lek"; */
+"1Ti-Sa-lek.text" = "100";
+
+/* Class = "UILabel"; text = "github.com/icerockdev/moko-resources"; ObjectID = "B6T-XF-ubQ"; */
+"B6T-XF-ubQ.text" = "github.com/icerockdev/moko-resources";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "EXI-qP-EJg"; */
+"EXI-qP-EJg.text" = "100";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LQn-hu-Ucu"; */
+"LQn-hu-Ucu.text" = "Label";
+
+/* Class = "UILabel"; text = "License"; ObjectID = "MwW-QF-sho"; */
+"MwW-QF-sho.text" = "Лицензия";
+
+/* Class = "UILabel"; text = "Stats"; ObjectID = "UGr-Mu-QWF"; */
+"UGr-Mu-QWF.text" = "Звезды";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "X4J-71-PRG"; */
+"X4J-71-PRG.text" = "100";
+
+/* Class = "UILabel"; text = "Forks"; ObjectID = "dAB-1g-rOp"; */
+"dAB-1g-rOp.text" = "Вилки";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "g3Q-q4-Kut"; */
+"g3Q-q4-Kut.text" = "Label";
+
+/* Class = "UILabel"; text = "Watchers"; ObjectID = "nlo-3c-Lls"; */
+"nlo-3c-Lls.text" = "Наблюдатели";

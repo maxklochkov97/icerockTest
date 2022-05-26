@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Check your something"; ObjectID = "E9o-Ed-1aW"; */
+"E9o-Ed-1aW.text" = "Проверьте что-нибудь";
+
+/* Class = "UILabel"; text = "Something Error"; ObjectID = "ZMc-M8-M0g"; */
+"ZMc-M8-M0g.text" = "Какая-то ошибка";
+
+/* Class = "UIButton"; configuration.title = "Retry"; ObjectID = "zsr-mY-nsE"; */
+"zsr-mY-nsE.configuration.title" = "Повторить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "zsr-mY-nsE"; */
+"zsr-mY-nsE.normalTitle" = "Повторить";

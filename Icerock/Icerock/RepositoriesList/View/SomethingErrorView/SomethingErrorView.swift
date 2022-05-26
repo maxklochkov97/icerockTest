@@ -20,8 +20,8 @@ class SomethingErrorView: UIView {
         loadNib()
     }
 
-    
     @IBAction func tapButton(_ sender: Any) {
+        updateReposDelegate?.hiddenView()
         updateReposDelegate?.getRepos()
     }
     

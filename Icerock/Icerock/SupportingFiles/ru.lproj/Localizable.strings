@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Icerock
+
+  Created by Максим Клочков on 26.05.2022.
+  
+*/
+
+"authVC.tokenTextField.text" = "Личный токен доступа";
+"authVC.alert.title" = "Ошибка";
+"authVC.alert.message" = "Ошибка данных / ошибка кода\nинформация для разработчика";
+"authVC.alert.ok" = "Понятно";
+
+"repositoriesListVC.navigationItem.title" = "Репозитории";
+
+"detailVC.licenseLabel.text" = "Нету";
+
+
+
+// NSLocalizedString("authVC.tokenTextField.text", comment: "")
