@@ -1,0 +1,6 @@
+framework module Pods_Icerock {
+  umbrella header "Pods-Icerock-umbrella.h"
+
+  export *
+  module * { export * }
+}

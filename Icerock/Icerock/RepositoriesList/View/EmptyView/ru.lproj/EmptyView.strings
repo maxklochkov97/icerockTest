@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Empty"; ObjectID = "Mzm-Po-6TK"; */
+"Mzm-Po-6TK.text" = "Пусто";
+
+/* Class = "UIButton"; configuration.title = "Refresh"; ObjectID = "en0-Qc-ZDJ"; */
+"en0-Qc-ZDJ.configuration.title" = "Обновить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "en0-Qc-ZDJ"; */
+"en0-Qc-ZDJ.normalTitle" = "Обновить";
+
+/* Class = "UILabel"; text = "No repositories at the moment"; ObjectID = "jQQ-V0-GXQ"; */
+"jQQ-V0-GXQ.text" = "нет репозиториев в данный момент";

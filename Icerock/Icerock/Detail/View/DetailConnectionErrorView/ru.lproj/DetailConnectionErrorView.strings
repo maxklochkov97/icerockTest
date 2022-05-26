@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Check your Internet connection"; ObjectID = "Le0-pR-bEU"; */
+"Le0-pR-bEU.text" = "Проверьте подключение к Интернету";
+
+/* Class = "UILabel"; text = "Connection error"; ObjectID = "aoV-d9-NZl"; */
+"aoV-d9-NZl.text" = "Ошибка подключения";
+
+/* Class = "UIButton"; configuration.title = "Retry"; ObjectID = "nhn-kP-4b7"; */
+"nhn-kP-4b7.configuration.title" = "Повторить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nhn-kP-4b7"; */
+"nhn-kP-4b7.normalTitle" = "Повторить";
