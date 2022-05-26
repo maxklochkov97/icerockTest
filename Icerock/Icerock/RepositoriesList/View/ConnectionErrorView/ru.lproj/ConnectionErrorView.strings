@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Check your Internet connection"; ObjectID = "CNI-Ed-c2M"; */
+"CNI-Ed-c2M.text" = "Проверьте ваш интернет";
+
+/* Class = "UIButton"; configuration.title = "Retry"; ObjectID = "mM3-Ln-age"; */
+"mM3-Ln-age.configuration.title" = "Повторить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mM3-Ln-age"; */
+"mM3-Ln-age.normalTitle" = "Повторить";
+
+/* Class = "UILabel"; text = "Connection error"; ObjectID = "voL-TP-7s2"; */
+"voL-TP-7s2.text" = "Ошибка подключения";

@@ -21,6 +21,7 @@ class DetailConnectionErrorView: UIView {
     }
 
     @IBAction func tapButton(_ sender: Any) {
+        print(#function)
         updateDetailDelegate?.hiddenView()
         updateDetailDelegate?.loadData()
     }

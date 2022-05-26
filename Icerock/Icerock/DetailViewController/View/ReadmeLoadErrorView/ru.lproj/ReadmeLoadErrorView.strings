@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Check your Internet connection"; ObjectID = "Bc4-jn-Mru"; */
+"Bc4-jn-Mru.text" = "Проверьте подключение к Интернету";
+
+/* Class = "UIButton"; configuration.title = "Retry"; ObjectID = "WXi-aQ-QcI"; */
+"WXi-aQ-QcI.configuration.title" = "Повторить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WXi-aQ-QcI"; */
+"WXi-aQ-QcI.normalTitle" = "Повторить";
+
+/* Class = "UILabel"; text = "Load error"; ObjectID = "Xhf-sX-eAe"; */
+"Xhf-sX-eAe.text" = "Ошибка загрузки";
