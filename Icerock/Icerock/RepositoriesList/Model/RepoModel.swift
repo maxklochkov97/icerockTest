@@ -12,4 +12,10 @@ struct Repo: Decodable {
     var language: String?
     var description: String?
     var id: Int
+    var updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case name, id, language, description
+        case updatedAt = "pushed_at"
+    }
 }

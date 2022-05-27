@@ -36,12 +36,12 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="trailing" secondItem="RZv-2b-3jF" secondAttribute="trailing" id="48B-5j-H2K"/>
-                        <constraint firstItem="RZv-2b-3jF" firstAttribute="leading" secondItem="jNJ-LS-lXN" secondAttribute="leading" id="B6o-ta-tua"/>
-                        <constraint firstItem="RZv-2b-3jF" firstAttribute="top" secondItem="jNJ-LS-lXN" secondAttribute="top" id="DXd-Ba-Etz"/>
-                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="bottom" secondItem="RZv-2b-3jF" secondAttribute="bottom" constant="818" id="LxY-e7-tpe"/>
-                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="width" secondItem="9RW-Ol-qNT" secondAttribute="width" id="X2P-Nb-WcW"/>
-                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="bottom" secondItem="9RW-Ol-qNT" secondAttribute="bottom" id="fHx-ym-yTX"/>
+                        <constraint firstAttribute="bottom" secondItem="jNJ-LS-lXN" secondAttribute="bottom" id="2kO-U3-1wv"/>
+                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="top" secondItem="OaB-iz-mW9" secondAttribute="top" id="4Eq-rW-bre"/>
+                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="leading" secondItem="OaB-iz-mW9" secondAttribute="leading" id="4xY-zy-pdT"/>
+                        <constraint firstAttribute="trailing" secondItem="jNJ-LS-lXN" secondAttribute="trailing" id="Bmv-YY-0Ef"/>
+                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="width" secondItem="OaB-iz-mW9" secondAttribute="width" id="bBg-5h-pwy"/>
+                        <constraint firstItem="jNJ-LS-lXN" firstAttribute="height" secondItem="OaB-iz-mW9" secondAttribute="height" id="mGd-hA-08w"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="RZv-2b-3jF"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="9RW-Ol-qNT"/>
@@ -59,14 +59,14 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OaB-iz-mW9" secondAttribute="bottom" id="18A-2e-jf2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OaB-iz-mW9" secondAttribute="trailing" id="MLd-7P-Y14"/>
                 <constraint firstItem="thZ-UC-e1b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="N9e-aN-7qg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="thZ-UC-e1b" secondAttribute="bottom" id="SXf-NL-r0g"/>
-                <constraint firstItem="OaB-iz-mW9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YaJ-YN-ZSi"/>
+                <constraint firstItem="OaB-iz-mW9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="U09-rn-CsI"/>
                 <constraint firstItem="thZ-UC-e1b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dsv-PD-Yt9"/>
-                <constraint firstItem="OaB-iz-mW9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oj7-GF-ilB"/>
+                <constraint firstItem="OaB-iz-mW9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="f1U-Uo-7i8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OaB-iz-mW9" secondAttribute="trailing" id="jZJ-gk-xQJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="thZ-UC-e1b" secondAttribute="trailing" id="pBx-uH-9hn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OaB-iz-mW9" secondAttribute="bottom" id="qgd-Nh-xSr"/>
             </constraints>
             <point key="canvasLocation" x="-217.39130434782609" y="87.723214285714278"/>
         </view>

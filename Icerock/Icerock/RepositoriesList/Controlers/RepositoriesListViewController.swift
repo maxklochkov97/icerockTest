@@ -130,10 +130,21 @@ extension RepositoriesListViewController: UpdateReposDelegate {
 
     func getRepos() {
         startAnimate()
+
+        func stringToDate(_ string: String) -> Date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            let date = dateFormatter.date(from: string)
+            guard let date = date else { return Date() }
+            return date
+        }
+
         NetworkManager.getRepositories { [weak self] answer in
             switch answer {
             case .success(let data):
-                self?.modelRepo = data
+
+                let sortedRepos = data.sorted(by: { stringToDate($0.updatedAt) > stringToDate($1.updatedAt) })
+                self?.modelRepo = Array(sortedRepos.prefix(10))
 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()

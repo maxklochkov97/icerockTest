@@ -36,7 +36,7 @@ class NetworkManager {
     }
     
     static func getRepositories(completion: @escaping (Result<[Repo], Error>) -> Void) {
-
+        
         guard Network.reachability.isReachable else {
             completion(.failure(NetworkServiceError.noInternet))
             return
@@ -67,7 +67,7 @@ class NetworkManager {
     }
     
     static func getRepository(repoId: Int, completion: @escaping (Result<RepoDetails, Error>) -> Void) {
-
+        
         guard Network.reachability.isReachable else {
             completion(.failure(NetworkServiceError.noInternet))
             return
@@ -82,7 +82,7 @@ class NetworkManager {
         let headers: HTTPHeaders? = ["Authorization": "Token \(token)"]
         
         AF.request(mainURL, method: .get, headers: headers).validate().response { responseData in
-
+            
             guard let data = responseData.data else {
                 completion(.failure(NetworkServiceError.noData))
                 return
@@ -104,36 +104,39 @@ class NetworkManager {
             }
         }
     }
+    
+    static func getRepositoryReadme(fullRepoName: String, completion: @escaping (Result<String, Error>) -> Void) {
         
-    static func getRepositoryReadme(fullRepoName: String, branchName: String, completion: @escaping (Result<String, Error>) -> Void) {
-
         guard Network.reachability.isReachable else {
             completion(.failure(NetworkServiceError.noInternet))
             return
         }
-
-        guard let url = URL(string: "https://raw.githubusercontent.com/\(fullRepoName)/\(branchName)/README.md") else {
+        
+        guard let token = KeyValueStorage.userDefaults.value(forKey: "token") as? String else {
+            completion(.failure(NetworkServiceError.invalidToken))
             return
         }
         
-        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
+        let mainURL = "https://api.github.com/repos/\(fullRepoName)/contents/README.md"
+        let headers: HTTPHeaders? = ["Authorization": "Token \(token)"]
         
-        if FileManager().fileExists(atPath: destinationUrl.path) {
-            do {
-                try FileManager().removeItem(atPath: destinationUrl.path)
-            } catch {
-                print("Error removeItem == \(error.localizedDescription)")
+        AF.request(mainURL, method: .get, headers: headers).validate().response { responseData in
+            
+            guard let data = responseData.data else {
+                completion(.failure(NetworkServiceError.noData))
+                return
             }
-        }
-
-        do {
-            let dataFromURL = NSData(contentsOf: url)
-            dataFromURL?.write(to: destinationUrl, atomically: true)
-            let dictionary = try String(contentsOfFile: destinationUrl.path, encoding: String.Encoding.utf8)
-            completion(.success(dictionary))
-        } catch {
-            completion(.failure(error))
+            
+            do {
+                let contentModel = try JSONDecoder().decode(ContentModel.self, from: data)
+                guard let string = contentModel.content.base64Decoded() else {
+                    completion(.failure(NetworkServiceError.noData))
+                    return
+                }
+                completion(.success(string))
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
 }

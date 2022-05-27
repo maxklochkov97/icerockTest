@@ -8,8 +8,6 @@
 import UIKit
 import Down
 
-// Сделать загрузку данных при инициализации, а то не свежие данные
-
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var secondaryDownload: UIImageView!
@@ -47,14 +45,24 @@ class DetailViewController: UIViewController {
         loadData()
     }
 
-    private func stopAnimate(_ image: UIImageView) {
-        image.layer.removeAllAnimations()
-        image.isHidden = true
+    private func stopAnimate(_ numberOfImage: Int) {
+        if numberOfImage == 1 {
+            mainDownload.layer.removeAllAnimations()
+            mainDownload.isHidden = true
+        } else if numberOfImage == 2 {
+            secondaryDownload.layer.removeAllAnimations()
+            secondaryDownload.isHidden = true
+        }
     }
 
-    private func startAnimate(_ image: UIImageView) {
-        image.rotate()
-        image.isHidden = false
+    private func startAnimate(_ numberOfImage: Int) {
+        if numberOfImage == 1 {
+            mainDownload.rotate()
+            mainDownload.isHidden = false
+        } else if numberOfImage == 2 {
+            secondaryDownload.rotate()
+            secondaryDownload.isHidden = false
+        }
     }
 
     func configure(with repo: Repo) {
@@ -99,31 +107,6 @@ class DetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    private func downloadReadme(fullRepoName: String?, branchName: String?) {
-        guard let fullRepoName = fullRepoName,
-              let branchName = branchName else { return }
-        startAnimate(secondaryDownload)
-
-        NetworkManager.getRepositoryReadme(fullRepoName: fullRepoName, branchName: branchName, completion: { [weak self] answer in
-            switch answer {
-            case .success(let dictionary):
-                self?.text = dictionary
-                self?.textLabel.textColor = .white
-                self?.stopAnimate((self?.secondaryDownload)!)
-                self?.scrollView.isHidden = false
-            case .failure(let error):
-                self?.stopAnimate((self?.secondaryDownload)!)
-                if Network.reachability.isReachable {
-                    self?.scrollView.isHidden = false
-                    self?.textLabel.text = "No README.md"
-                } else {
-                    self?.readmeLoadErrorView.isHidden = false
-                }
-                print("Error in \(#function) == \(error.localizedDescription)")
-            }
-        })
-    }
-
     private func setupLinkLabel() {
         guard let sentence = linkLabel.text else { return }
         let startIndex = sentence.index(sentence.startIndex, offsetBy: 8)
@@ -153,6 +136,31 @@ class DetailViewController: UIViewController {
         self.watchersCountLabel.text = String(repo.watchers ?? 0)
         self.textLabel.numberOfLines = 0
     }
+
+    private func getReadme(fullRepoName: String?) {
+        guard let fullRepoName = fullRepoName else { return }
+        startAnimate(2)
+
+        NetworkManager.getRepositoryReadme(fullRepoName: fullRepoName, completion: { [weak self] answer in
+            switch answer {
+            case .success(let dictionary):
+                self?.text = dictionary
+                self?.textLabel.textColor = .white
+                self?.stopAnimate(2)
+                self?.scrollView.isHidden = false
+
+            case .failure(let error):
+                self?.stopAnimate(2)
+                if Network.reachability.isReachable {
+                    self?.scrollView.isHidden = false
+                    self?.textLabel.text = "No README.md"
+                } else {
+                    self?.readmeLoadErrorView.isHidden = false
+                }
+                print("Error in \(#function) == \(error.localizedDescription)")
+            }
+        })
+    }
 }
 
 extension DetailViewController: UpdateDetailDelegate {
@@ -167,24 +175,22 @@ extension DetailViewController: UpdateDetailDelegate {
     }
 
     func loadData() {
-        startAnimate(mainDownload)
+        startAnimate(1)
         NetworkManager.getRepository(repoId: repoId) { [weak self] answer in
             switch answer {
             case .success(let repo):
                 self?.setupView(repo: repo)
                 self?.setupLinkLabel()
-                self?.stopAnimate((self?.mainDownload)!)
+                self?.stopAnimate(1)
                 self?.mainHeaderStack.isHidden = false
-                self?.downloadReadme(fullRepoName: repo.fullName, branchName: repo.defaultBranch)
+                self?.getReadme(fullRepoName: repo.fullName)
+                
             case.failure(let error):
-                self?.stopAnimate((self?.mainDownload)!)
-
+                self?.stopAnimate(1)
                 if Network.reachability.isReachable {
                     print("Error in \(#function) == \(error.localizedDescription)")
-                    print(Network.reachability.isReachable)
                 } else {
                     self?.detailConnectionErrorView.isHidden = false
-                    print(Network.reachability.isReachable)
                 }
             }
         }

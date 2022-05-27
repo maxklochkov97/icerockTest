@@ -18,6 +18,7 @@
 		5F20ABDA283D145800090A1A /* SomethingErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F20ABD9283D145800090A1A /* SomethingErrorView.swift */; };
 		5F20ABDD283E03F300090A1A /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */; };
 		5F24A024283CF94200361A5E /* ConnectionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24A023283CF94200361A5E /* ConnectionErrorView.swift */; };
+		5F2B854A2840D5BE00E878F7 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2B85492840D5BE00E878F7 /* ContentModel.swift */; };
 		5F2E3749283F7AC200CCD66A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E374B283F7AC200CCD66A /* Localizable.strings */; };
 		5F2E374D283F7E4300CCD66A /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E374F283F7E4300CCD66A /* EmptyView.xib */; };
 		5F2E3752283F7E8700CCD66A /* ConnectionErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E3754283F7E8700CCD66A /* ConnectionErrorView.xib */; };
@@ -61,6 +62,7 @@
 		5F20ABD9283D145800090A1A /* SomethingErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomethingErrorView.swift; sourceTree = "<group>"; };
 		5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
 		5F24A023283CF94200361A5E /* ConnectionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionErrorView.swift; sourceTree = "<group>"; };
+		5F2B85492840D5BE00E878F7 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		5F2E374A283F7AC200CCD66A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F2E374C283F7ACC00CCD66A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F2E374E283F7E4300CCD66A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyView.xib; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				5FCD5B33283237ED00F43761 /* NetworkManager.swift */,
 				5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */,
 				5F155F6D283F4A8E00E2FC73 /* Reachability.swift */,
+				5F2B85492840D5BE00E878F7 /* ContentModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				5F2E74AB283E1FB400E02617 /* Extension+UIImageView.swift in Sources */,
 				5F20ABDD283E03F300090A1A /* KeyValueStorage.swift in Sources */,
 				5F155F6E283F4A8E00E2FC73 /* Reachability.swift in Sources */,
+				5F2B854A2840D5BE00E878F7 /* ContentModel.swift in Sources */,
 				5F20ABDA283D145800090A1A /* SomethingErrorView.swift in Sources */,
 				5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */,
 				5F86401D283693E900BF423F /* Extension+UIView.swift in Sources */,

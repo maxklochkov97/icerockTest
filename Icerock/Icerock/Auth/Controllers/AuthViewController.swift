@@ -4,7 +4,6 @@
 //
 //  Created by Максим Клочков on 26.05.2022.
 //
-
 import UIKit
 
 class AuthViewController: UIViewController {

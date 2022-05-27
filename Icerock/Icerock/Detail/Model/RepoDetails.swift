@@ -17,6 +17,7 @@ struct RepoDetails: Decodable {
     var stars: Int?
     var fullName: String?
     var defaultBranch: String?
+    var urlContent: String?
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -28,5 +29,6 @@ struct RepoDetails: Decodable {
         case license = "license"
         case fullName = "full_name"
         case defaultBranch = "default_branch"
+        case urlContent = "contents_url"
     }
 }
