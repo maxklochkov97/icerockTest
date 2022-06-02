@@ -26,7 +26,7 @@ class SomethingErrorView: UIView {
     }
     
     private func loadNib() {
-        guard let xibView = Bundle.main.loadNibNamed("EmptyView", owner: self, options: nil)![0] as? UIView else {
+        guard let xibView = Bundle.main.loadNibNamed("SomethingErrorView", owner: self, options: nil)![0] as? UIView else {
             return
         }
         xibView.frame = self.bounds

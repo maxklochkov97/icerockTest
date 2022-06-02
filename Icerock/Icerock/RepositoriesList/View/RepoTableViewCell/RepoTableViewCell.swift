@@ -20,11 +20,11 @@ class RepoTableViewCell: UITableViewCell {
 
         switch self.languageLabel.text {
         case "Swift":
-            self.languageLabel.textColor = .colorSeven
+            self.languageLabel.textColor = .languageLabelSwift
         case "HTML":
             self.languageLabel.textColor = .green
         default:
-            break
+            self.languageLabel.textColor = .gray
         }
     }
 }

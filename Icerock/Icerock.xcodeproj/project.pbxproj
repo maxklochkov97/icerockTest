@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F155F6E283F4A8E00E2FC73 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F155F6D283F4A8E00E2FC73 /* Reachability.swift */; };
 		5F155F72283F62BE00E2FC73 /* RepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F155F71283F62BE00E2FC73 /* RepoModel.swift */; };
 		5F155F75283F62EC00E2FC73 /* RepoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F155F74283F62EC00E2FC73 /* RepoDetails.swift */; };
 		5F183DE128410F2C00FEC306 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F183DE028410F2C00FEC306 /* Extension+String.swift */; };
@@ -33,11 +32,11 @@
 		5F2E74B8283E3EF600E02617 /* DetailConnectionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74B7283E3EF600E02617 /* DetailConnectionErrorView.swift */; };
 		5F2E74BF283E40C200E02617 /* ReadmeLoadErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74BE283E40C200E02617 /* ReadmeLoadErrorView.swift */; };
 		5F2E74C2283E466100E02617 /* UpdateDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E74C1283E466100E02617 /* UpdateDetailDelegate.swift */; };
+		5F736DAF284E3D27002F28CD /* SomethingErrorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F736DAE284E3D27002F28CD /* SomethingErrorDetailView.swift */; };
+		5F736DB2284E49BD002F28CD /* SomethingErrorDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F736DB4284E49BD002F28CD /* SomethingErrorDetailView.xib */; };
 		5F7A9201283F8CDB005A5F77 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A91FF283F8CDB005A5F77 /* AuthViewController.swift */; };
 		5F7A9202283F8CDB005A5F77 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7A9200283F8CDB005A5F77 /* AuthViewController.xib */; };
 		5F7A9208283FBBB0005A5F77 /* TapButtonAuthVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A9207283FBBB0005A5F77 /* TapButtonAuthVCDelegate.swift */; };
-		5F7A920D283FC2D5005A5F77 /* LaunchScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7A920C283FC2D5005A5F77 /* LaunchScreenView.xib */; };
-		5F7A920F283FC30A005A5F77 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A920E283FC30A005A5F77 /* LaunchScreenView.swift */; };
 		5F7A9210283FC6D5005A5F77 /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7A9212283FC6D5005A5F77 /* AuthView.xib */; };
 		5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85C79D28377C080097EE34 /* DetailViewController.swift */; };
 		5F86401D283693E900BF423F /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86401C283693E900BF423F /* Extension+UIView.swift */; };
@@ -51,7 +50,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F155F6D283F4A8E00E2FC73 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5F155F71283F62BE00E2FC73 /* RepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoModel.swift; sourceTree = "<group>"; };
 		5F155F74283F62EC00E2FC73 /* RepoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetails.swift; sourceTree = "<group>"; };
 		5F155F7C283F66CC00E2FC73 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -85,11 +83,12 @@
 		5F2E74B7283E3EF600E02617 /* DetailConnectionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConnectionErrorView.swift; sourceTree = "<group>"; };
 		5F2E74BE283E40C200E02617 /* ReadmeLoadErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeLoadErrorView.swift; sourceTree = "<group>"; };
 		5F2E74C1283E466100E02617 /* UpdateDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailDelegate.swift; sourceTree = "<group>"; };
+		5F736DAE284E3D27002F28CD /* SomethingErrorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomethingErrorDetailView.swift; sourceTree = "<group>"; };
+		5F736DB3284E49BD002F28CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SomethingErrorDetailView.xib; sourceTree = "<group>"; };
+		5F736DB6284E49C0002F28CD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SomethingErrorDetailView.strings; sourceTree = "<group>"; };
 		5F7A91FF283F8CDB005A5F77 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		5F7A9200283F8CDB005A5F77 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		5F7A9207283FBBB0005A5F77 /* TapButtonAuthVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonAuthVCDelegate.swift; sourceTree = "<group>"; };
-		5F7A920C283FC2D5005A5F77 /* LaunchScreenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenView.xib; sourceTree = "<group>"; };
-		5F7A920E283FC30A005A5F77 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		5F7A9211283FC6D5005A5F77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AuthView.xib; sourceTree = "<group>"; };
 		5F7A9214283FC6D8005A5F77 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AuthView.strings; sourceTree = "<group>"; };
 		5F85C79D28377C080097EE34 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		5F155F73283F62E300E2FC73 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5F2B85492840D5BE00E878F7 /* ContentModel.swift */,
 				5F155F74283F62EC00E2FC73 /* RepoDetails.swift */,
 			);
 			path = Model;
@@ -168,8 +168,6 @@
 			children = (
 				5FCD5B33283237ED00F43761 /* NetworkManager.swift */,
 				5F20ABDC283E03F300090A1A /* KeyValueStorage.swift */,
-				5F155F6D283F4A8E00E2FC73 /* Reachability.swift */,
-				5F2B85492840D5BE00E878F7 /* ContentModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -243,7 +241,6 @@
 		5F2E376C283F84EE00CCD66A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5F7A920B283FC2AD005A5F77 /* LaunchScreenView */,
 				5F7A920A283FC2A3005A5F77 /* AuthView */,
 			);
 			path = View;
@@ -279,6 +276,7 @@
 		5F2E74A9283E1E9900E02617 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5F5464B92847DD2100821625 /* CustomFonts */,
 				5F155F76283F637B00E2FC73 /* Delegates */,
 				5FDADEA1282E581F0037B2C3 /* Extension */,
 				5FDADE8B282E416C0037B2C3 /* Assets.xcassets */,
@@ -300,6 +298,7 @@
 		5F2E74AD283E313F00E02617 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5F736DAD284E3D0B002F28CD /* SomethingErrorDetailView */,
 				5F2E74B9283E406600E02617 /* DetailConnectionErrorView */,
 				5F2E74C0283E40C900E02617 /* ReadmeLoadErrorView */,
 			);
@@ -324,6 +323,22 @@
 			path = ReadmeLoadErrorView;
 			sourceTree = "<group>";
 		};
+		5F5464B92847DD2100821625 /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomFonts;
+			sourceTree = "<group>";
+		};
+		5F736DAD284E3D0B002F28CD /* SomethingErrorDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				5F736DAE284E3D27002F28CD /* SomethingErrorDetailView.swift */,
+				5F736DB4284E49BD002F28CD /* SomethingErrorDetailView.xib */,
+			);
+			path = SomethingErrorDetailView;
+			sourceTree = "<group>";
+		};
 		5F7A9209283FC19E005A5F77 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,15 +354,6 @@
 				5F7A9212283FC6D5005A5F77 /* AuthView.xib */,
 			);
 			path = AuthView;
-			sourceTree = "<group>";
-		};
-		5F7A920B283FC2AD005A5F77 /* LaunchScreenView */ = {
-			isa = PBXGroup;
-			children = (
-				5F7A920C283FC2D5005A5F77 /* LaunchScreenView.xib */,
-				5F7A920E283FC30A005A5F77 /* LaunchScreenView.swift */,
-			);
-			path = LaunchScreenView;
 			sourceTree = "<group>";
 		};
 		5F85C7A128377C100097EE34 /* Detail */ = {
@@ -425,8 +431,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FDADE93282E416C0037B2C3 /* Build configuration list for PBXNativeTarget "Icerock" */;
 			buildPhases = (
-				5F7A9215283FCFBA005A5F77 /* Run SwiftLint */,
 				1753210910DA6429903B6625 /* [CP] Check Pods Manifest.lock */,
+				5F7A9215283FCFBA005A5F77 /* Run SwiftLint */,
 				5FDADE7B282E416B0037B2C3 /* Sources */,
 				5FDADE7C282E416B0037B2C3 /* Frameworks */,
 				5FDADE7D282E416B0037B2C3 /* Resources */,
@@ -481,7 +487,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F2E374D283F7E4300CCD66A /* EmptyView.xib in Resources */,
-				5F7A920D283FC2D5005A5F77 /* LaunchScreenView.xib in Resources */,
 				5F2E3766283F7F8500CCD66A /* DetailViewController.xib in Resources */,
 				5F7A9210283FC6D5005A5F77 /* AuthView.xib in Resources */,
 				5FDADE8F282E416C0037B2C3 /* LaunchScreen.storyboard in Resources */,
@@ -490,6 +495,7 @@
 				5F2E375C283F7F1F00CCD66A /* DetailConnectionErrorView.xib in Resources */,
 				5FDADE8C282E416C0037B2C3 /* Assets.xcassets in Resources */,
 				5F2E3749283F7AC200CCD66A /* Localizable.strings in Resources */,
+				5F736DB2284E49BD002F28CD /* SomethingErrorDetailView.xib in Resources */,
 				5F2E3757283F7ECF00CCD66A /* SomethingErrorView.xib in Resources */,
 				5F1A9D0A2833C3D0004A8798 /* RepoTableViewCell.xib in Resources */,
 				5F7A9202283F8CDB005A5F77 /* AuthViewController.xib in Resources */,
@@ -581,7 +587,6 @@
 				5FDADEA3282E58330037B2C3 /* Extension+UIColor.swift in Sources */,
 				5F2E74AB283E1FB400E02617 /* Extension+UIImageView.swift in Sources */,
 				5F20ABDD283E03F300090A1A /* KeyValueStorage.swift in Sources */,
-				5F155F6E283F4A8E00E2FC73 /* Reachability.swift in Sources */,
 				5F2B854A2840D5BE00E878F7 /* ContentModel.swift in Sources */,
 				5F20ABDA283D145800090A1A /* SomethingErrorView.swift in Sources */,
 				5F85C79F28377C080097EE34 /* DetailViewController.swift in Sources */,
@@ -589,7 +594,7 @@
 				5F2E74C2283E466100E02617 /* UpdateDetailDelegate.swift in Sources */,
 				5F2E3770283F850F00CCD66A /* AuthView.swift in Sources */,
 				5FCD5B34283237ED00F43761 /* NetworkManager.swift in Sources */,
-				5F7A920F283FC30A005A5F77 /* LaunchScreenView.swift in Sources */,
+				5F736DAF284E3D27002F28CD /* SomethingErrorDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +662,15 @@
 				5F2E376A283F7F8900CCD66A /* ru */,
 			);
 			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		5F736DB4284E49BD002F28CD /* SomethingErrorDetailView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F736DB3284E49BD002F28CD /* Base */,
+				5F736DB6284E49C0002F28CD /* ru */,
+			);
+			name = SomethingErrorDetailView.xib;
 			sourceTree = "<group>";
 		};
 		5F7A9212283FC6D5005A5F77 /* AuthView.xib */ = {

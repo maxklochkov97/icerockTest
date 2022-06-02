@@ -6,20 +6,17 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 class AuthView: UIView {
     
     weak var tapButtonAuthVCDelegate: TapButtonAuthVCDelegate?
     
-    @IBOutlet weak var downloadImage: UIImageView!
     @IBOutlet weak var invalidTokenLabel: UILabel!
     @IBOutlet weak var tokenTextField: UITextField!
     @IBOutlet weak var singInButton: UIButton!
-    
-    private var isKeyboardAppeared = false
-    private var oldSingInButtonHeight: CGFloat?
-    private var newSingInButtonHeight: CGFloat?
-    
+    @IBOutlet weak var activityIndicator: MDCActivityIndicator!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -30,8 +27,15 @@ class AuthView: UIView {
         loadNib()
         setupView()
     }
+
     @IBAction func tapSingInButton(_ sender: Any) {
         tapButtonAuthVCDelegate?.singIn()
+    }
+
+    private func setupActivityIndicator() {
+        activityIndicator.cycleColors = [.white]
+        activityIndicator.radius = 12
+        activityIndicator.strokeWidth = 3
     }
 
     private func loadNib() {
@@ -43,35 +47,36 @@ class AuthView: UIView {
     }
     
     private func setupView() {
-        downloadImage.isHidden = true
         invalidTokenLabel.isHidden = true
+        setupActivityIndicator()
         setupTokenTextField()
         tapToBackground()
     }
     
     func stopAnimate() {
-        downloadImage.layer.removeAllAnimations()
-        downloadImage.isHidden = true
-        singInButton.titleLabel?.isHidden = false
+        activityIndicator.stopAnimating()
+        singInButton.setTitleColor(UIColor.white, for: .normal)
+        //singInButton.titleLabel?.isHidden = false
     }
     
     func startAnimate() {
-        downloadImage.rotate()
-        singInButton.titleLabel?.isHidden = true
-        downloadImage.isHidden = false
+        singInButton.setTitleColor(UIColor.clear, for: .normal)
+        //singInButton.titleLabel?.isHidden = true
+        activityIndicator.startAnimating()
     }
     
     private func setupTokenTextField() {
         tokenTextField.layer.borderWidth = 1
-        tokenTextField.layer.borderColor = UIColor.colorTwo.cgColor
+        tokenTextField.layer.borderColor = UIColor.tokenTextFieldDefaultBorder.cgColor
         tokenTextField.layer.cornerRadius = 8
         tokenTextField.textColor = .white
         tokenTextField.attributedPlaceholder = NSAttributedString(
             string: NSLocalizedString("authVC.tokenTextField.text", comment: ""),
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.translucentWhite]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.tokenTextFieldText]
         )
         tokenTextField.leftView = UIView(frame: CGRect(x: 0, y: 10, width: 10, height: tokenTextField.frame.height))
         tokenTextField.leftViewMode = .always
+        tokenTextField.delegate = self
     }
     
     private func tapToBackground() {
@@ -81,5 +86,24 @@ class AuthView: UIView {
     
     @objc func backgroundTap(_ sender: UITapGestureRecognizer) {
         self.endEditing(true)
+    }
+}
+
+extension AuthView: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == tokenTextField {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tokenTextField.layer.borderColor = UIColor.tokenTextFieldActivBorder.cgColor
+            })
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == tokenTextField {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tokenTextField.layer.borderColor = UIColor.tokenTextFieldDefaultBorder.cgColor
+            })
+        }
     }
 }

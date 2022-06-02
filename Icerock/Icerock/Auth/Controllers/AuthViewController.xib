@@ -5,14 +5,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController" customModule="Icerock" customModuleProvider="target">
             <connections>
                 <outlet property="authView" destination="jNJ-LS-lXN" id="PVn-ea-2YZ"/>
-                <outlet property="launchScreenView" destination="thZ-UC-e1b" id="jQP-PR-y67"/>
                 <outlet property="scrollView" destination="OaB-iz-mW9" id="s2q-2J-HmY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,10 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thZ-UC-e1b" customClass="LaunchScreenView" customModule="Icerock" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaB-iz-mW9">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
@@ -49,21 +43,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="thZ-UC-e1b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="N9e-aN-7qg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="thZ-UC-e1b" secondAttribute="bottom" id="SXf-NL-r0g"/>
                 <constraint firstItem="OaB-iz-mW9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="U09-rn-CsI"/>
-                <constraint firstItem="thZ-UC-e1b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dsv-PD-Yt9"/>
                 <constraint firstItem="OaB-iz-mW9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="f1U-Uo-7i8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OaB-iz-mW9" secondAttribute="trailing" id="jZJ-gk-xQJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="thZ-UC-e1b" secondAttribute="trailing" id="pBx-uH-9hn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OaB-iz-mW9" secondAttribute="bottom" id="qgd-Nh-xSr"/>
             </constraints>
             <point key="canvasLocation" x="-217.39130434782609" y="87.723214285714278"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

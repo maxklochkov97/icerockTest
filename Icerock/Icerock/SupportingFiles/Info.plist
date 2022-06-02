@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFProTextMedium.ttf</string>
+		<string>SFProTextSemibold.ttf</string>
+		<string>SFProTextRegular.ttf</string>
+		<string>SFProDisplaySemibold.ttf</string>
+		<string>SFProDisplayRegular.ttf</string>
+	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>

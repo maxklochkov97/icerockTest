@@ -16,28 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigationVC = UINavigationController()
+        let repositoriesListVC = RepositoriesListViewController()
         let authVC = AuthViewController()
-        navigationVC.viewControllers = [authVC]
-        
+
+        if KeyValueStorage.authToken != nil {
+            navigationVC.viewControllers = [repositoriesListVC]
+        } else {
+            navigationVC.viewControllers = [authVC]
+        }
+
         window?.rootViewController = navigationVC
         window?.makeKeyAndVisible()
         
-        do {
-            try Network.reachability = Reachability(hostname: "api.github.com")
-        } catch {
-            switch error as? Network.Error {
-            case let .failedToCreateWith(hostname)?:
-                print("Network error:\nFailed to create reachability object With host named:", hostname)
-            case let .failedToInitializeWith(address)?:
-                print("Network error:\nFailed to initialize reachability object With address:", address)
-            case .failedToSetCallout?:
-                print("Network error:\nFailed to set callout")
-            case .failedToSetDispatchQueue?:
-                print("Network error:\nFailed to set DispatchQueue")
-            case .none:
-                print(error)
-            }
-        }
         return true
     }
 }

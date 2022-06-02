@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; configuration.title = "Retry"; ObjectID = "Fm4-ps-G8J"; */
+"Fm4-ps-G8J.configuration.title" = "Повторить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Fm4-ps-G8J"; */
+"Fm4-ps-G8J.normalTitle" = "Повторить";
+
+/* Class = "UILabel"; text = "Check your something"; ObjectID = "V79-er-FUP"; */
+"V79-er-FUP.text" = "Проверьте что-нибудь";
+
+/* Class = "UILabel"; text = "Something Error"; ObjectID = "lP9-bQ-xN5"; */
+"lP9-bQ-xN5.text" = "Какая-то ошибка";

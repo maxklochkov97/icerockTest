@@ -16,14 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="OLL-b4-zGn">
-                                <rect key="frame" x="41" y="276.5" width="332" height="353"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="OLL-b4-zGn">
+                                <rect key="frame" x="60.5" y="271" width="293" height="354"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="DBh-QV-1ej">
-                                        <rect key="frame" x="0.0" y="0.0" width="332" height="251"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="252"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="252" id="W9d-en-EYs"/>
+                                        </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-Wp-aob">
-                                        <rect key="frame" x="0.0" y="298" width="332" height="55"/>
+                                        <rect key="frame" x="0.0" y="299" width="293" height="55"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -31,9 +34,8 @@
                         <viewLayoutGuide key="safeArea" id="2p5-Ln-BLr"/>
                         <color key="backgroundColor" red="0.054901964960000001" green="0.066666662690000003" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="OLL-b4-zGn" firstAttribute="leading" secondItem="2p5-Ln-BLr" secondAttribute="leading" constant="41" id="Ie9-Lj-yyE"/>
-                            <constraint firstItem="OLL-b4-zGn" firstAttribute="centerY" secondItem="2p5-Ln-BLr" secondAttribute="centerY" id="XTA-lS-c56"/>
-                            <constraint firstItem="2p5-Ln-BLr" firstAttribute="trailing" secondItem="OLL-b4-zGn" secondAttribute="trailing" constant="41" id="lw5-57-4A9"/>
+                            <constraint firstItem="OLL-b4-zGn" firstAttribute="centerY" secondItem="gyu-st-rdQ" secondAttribute="centerY" id="5PW-jU-E3a"/>
+                            <constraint firstItem="OLL-b4-zGn" firstAttribute="centerX" secondItem="gyu-st-rdQ" secondAttribute="centerX" id="x0d-kt-kVd"/>
                         </constraints>
                     </view>
                 </viewController>

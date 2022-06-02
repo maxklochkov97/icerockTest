@@ -27,3 +27,10 @@
 1. Обеспечить поддержку iOS 13.0
 
 [Исходная ссылка.](https://kmm.icerock.dev/university/ios-basics/practice/)
+
+[Макет в фигме.](https://www.figma.com/file/rXdY3LA1SNIjebrz0X3JdA/Git_test-iOS-(Copy))
+
+![photo](/img/img1.png)
+![photo](/img/img2.png)
+
+

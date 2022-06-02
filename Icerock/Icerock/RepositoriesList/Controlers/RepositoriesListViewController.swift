@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 class RepositoriesListViewController: UIViewController {
     private var modelRepo: [Repo] = [Repo]()
@@ -13,8 +14,8 @@ class RepositoriesListViewController: UIViewController {
     @IBOutlet weak var connectionErrorView: ConnectionErrorView!
     @IBOutlet weak var emptyView: EmptyView!
     @IBOutlet weak var somethingErrorView: SomethingErrorView!
-    @IBOutlet weak var downloadImage: UIImageView!
-    
+    @IBOutlet weak var activityIndicator: MDCActivityIndicator!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -29,41 +30,41 @@ class RepositoriesListViewController: UIViewController {
     }
 
     private func setupView() {
+        setupActivityIndicator()
         connectionErrorView.updateReposDelegate = self
         emptyView.updateReposDelegate = self
         somethingErrorView.updateReposDelegate = self
+
     }
-    
-    private func stopAnimate() {
-        downloadImage.layer.removeAllAnimations()
-        downloadImage.isHidden = true
-    }
-    
-    private func startAnimate() {
-        downloadImage.rotate()
-        downloadImage.isHidden = false
-    }
-    
+
     private func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: RepoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RepoTableViewCell.identifier)
+    }
+
+    private func setupActivityIndicator() {
+        activityIndicator.cycleColors = [.white]
+        activityIndicator.radius = 28
+        activityIndicator.strokeWidth = 7
     }
     
     private func setupNavBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
 
         let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.backgroundColor = .colorFive
-        appearance.shadowImage = UIColor.colorEight.as1ptImage()
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
+        appearance.backgroundColor = .background
+        appearance.shadowImage = UIColor.navBarShadow.as1ptImage()
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         
         let rightFilterButton = UIBarButtonItem(
             image: UIImage(named: "exit"),
             style: .plain, target: self,
-            action: #selector(tabBackButton))
+            action: #selector(tabExitButton))
         rightFilterButton.tintColor = .white
         navigationItem.rightBarButtonItem = rightFilterButton
 
@@ -86,10 +87,21 @@ class RepositoriesListViewController: UIViewController {
         getRepos()
     }
     
-    @objc private func tabBackButton() {
-        KeyValueStorage.userDefaults.removeObject(forKey: "token")
-        self.navigationController?.popViewController(animated: true)
+    @objc private func tabExitButton() {
+        KeyValueStorage.authToken = nil
+
+        guard let navigationController = self.navigationController else { return }
+
+        let newVC = AuthViewController()
+        navigationController.pushViewController(newVC, animated: true)
+
+        var navigationArray = navigationController.viewControllers
+        guard let temp = navigationArray.last else { return }
+        navigationArray.removeAll()
+        navigationArray.append(temp)
+        self.navigationController?.viewControllers = navigationArray
     }
+
 }
 
 extension RepositoriesListViewController: UITableViewDataSource {
@@ -129,43 +141,35 @@ extension RepositoriesListViewController: UpdateReposDelegate {
     }
 
     func getRepos() {
-        startAnimate()
-
-        func stringToDate(_ string: String) -> Date {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            let date = dateFormatter.date(from: string)
-            guard let date = date else { return Date() }
-            return date
-        }
+        activityIndicator.startAnimating()
 
         NetworkManager.getRepositories { [weak self] answer in
             switch answer {
             case .success(let data):
-
-                let sortedRepos = data.sorted(by: { stringToDate($0.updatedAt) > stringToDate($1.updatedAt) })
+                let sortedRepos = data.sorted(by: { $0.updatedAt.stringToDate() > $1.updatedAt.stringToDate() })
                 self?.modelRepo = Array(sortedRepos.prefix(10))
 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
 
+                self?.activityIndicator.stopAnimating()
+
                 if data.isEmpty {
                     self?.emptyView.isHidden = false
                 } else {
                     self?.tableView.isHidden = false
                 }
-                self?.stopAnimate()
 
             case.failure(let error):
-                self?.stopAnimate()
-                if Network.reachability.isReachable {
-                    self?.somethingErrorView.isHidden = false
-                } else {
+                self?.activityIndicator.stopAnimating()
+                switch error {
+                case .noInternet:
                     self?.connectionErrorView.isHidden = false
+                default:
+                    self?.somethingErrorView.isHidden = false
                 }
                 print("Error in \(#function) == \(error.localizedDescription)")
-
             }
         }
     }

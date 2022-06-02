@@ -26,7 +26,7 @@ class ReadmeLoadErrorView: UIView {
     }
 
     private func loadNib() {
-        guard let xibView = Bundle.main.loadNibNamed("ConnectionErrorView", owner: self, options: nil)![0] as? UIView else {
+        guard let xibView = Bundle.main.loadNibNamed("ReadmeLoadErrorView", owner: self, options: nil)![0] as? UIView else {
             return
         }
         xibView.frame = self.bounds

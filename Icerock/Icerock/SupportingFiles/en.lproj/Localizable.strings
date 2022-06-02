@@ -8,11 +8,9 @@
 
 "authVC.tokenTextField.text" = "Personal access token";
 "authVC.alert.title" = "Error";
-"authVC.alert.message" = "Error data / error code/ninformation for developers";
+"authVC.alert.message" = "Error data / error code\ninformation for developers";
 "authVC.alert.ok" = "Ok";
 
 "repositoriesListVC.navigationItem.title" = "Repositories";
 
 "detailVC.licenseLabel.text" = "No";
-
-// NSLocalizedString("authVC.tokenTextField.text", comment: "")

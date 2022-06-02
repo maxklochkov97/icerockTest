@@ -21,13 +21,12 @@ class DetailConnectionErrorView: UIView {
     }
 
     @IBAction func tapButton(_ sender: Any) {
-        print(#function)
         updateDetailDelegate?.hiddenView()
         updateDetailDelegate?.loadData()
     }
 
     private func loadNib() {
-        guard let xibView = Bundle.main.loadNibNamed("ConnectionErrorView", owner: self, options: nil)![0] as? UIView else {
+        guard let xibView = Bundle.main.loadNibNamed("DetailConnectionErrorView", owner: self, options: nil)![0] as? UIView else {
             return
         }
         xibView.frame = self.bounds

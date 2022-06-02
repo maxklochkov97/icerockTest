@@ -14,7 +14,3 @@
 "repositoriesListVC.navigationItem.title" = "Репозитории";
 
 "detailVC.licenseLabel.text" = "Нету";
-
-
-
-// NSLocalizedString("authVC.tokenTextField.text", comment: "")

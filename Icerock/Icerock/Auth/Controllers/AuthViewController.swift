@@ -10,7 +10,6 @@ class AuthViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var authView: AuthView!
-    @IBOutlet weak var launchScreenView: LaunchScreenView!
 
     private var isKeyboardAppeared = false
     private var oldSingInButtonHeight: CGFloat?
@@ -18,7 +17,6 @@ class AuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        authorizationBySavedToken()
         setupView()
         keyboardObservers()
     }
@@ -29,35 +27,13 @@ class AuthViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    private func authorizationBySavedToken() {
-        launchScreenView.isHidden = true
-         guard let oldToken = KeyValueStorage.userDefaults.value(forKey: "token") as? String else { return }
-        scrollView.isHidden = true
-        launchScreenView.isHidden = false
-
-         NetworkManager.signIn(token: oldToken) { [weak self] answer in
-             switch answer {
-             case .success(_):
-                 let newVC = RepositoriesListViewController()
-                 self?.navigationController?.pushViewController(newVC, animated: false)
-                 self?.launchScreenView.isHidden = true
-                 self?.scrollView.isHidden = false
-             case.failure(let error):
-                 self?.launchScreenView.isHidden = true
-                 self?.scrollView.isHidden = false
-                 self?.addAlert()
-                 print("Error in \(#function) == \(error.localizedDescription)")
-             }
-         }
-     }
-
     private func isValidToken(_ token: String) -> Bool {
         let lowercaseLetters = CharacterSet(charactersIn: "а"..."я")
         let uppercaseLetters = CharacterSet(charactersIn: "А"..."Я")
 
         if token.rangeOfCharacter(from: lowercaseLetters) != nil || token.rangeOfCharacter(from: uppercaseLetters) != nil {
             self.authView.invalidTokenLabel.isHidden = false
-            self.authView.tokenTextField.layer.borderColor = UIColor.colorSix.cgColor
+            self.authView.tokenTextField.layer.borderColor = UIColor.invalidToken.cgColor
             return false
         } else {
             return true
@@ -79,14 +55,15 @@ class AuthViewController: UIViewController {
         let attributedTitle = NSAttributedString(
             string: NSLocalizedString("authVC.alert.title", comment: ""),
             attributes: [
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17),
+                NSAttributedString.Key.font:
+                    UIFont.systemFont(ofSize: 17, weight: .semibold),
                 NSAttributedString.Key.foregroundColor: UIColor.white
             ])
 
         let attributedMessage = NSAttributedString(
             string: NSLocalizedString("authVC.alert.message", comment: ""),
             attributes: [
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15),
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .regular),
                 NSAttributedString.Key.foregroundColor: UIColor.white
             ])
 
@@ -106,9 +83,8 @@ class AuthViewController: UIViewController {
                 self.dismiss(animated: true)
             }
 
-        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.colorFive
-        alert.view.tintColor = UIColor.colorFour
-
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.background
+        alert.view.tintColor = UIColor.okAlert
         alert.addAction(okAlert)
         present(alert, animated: true)
     }
@@ -166,7 +142,6 @@ class AuthViewController: UIViewController {
                 isKeyboardAppeared = true
             }
         }
-        self.authView.tokenTextField.layer.borderColor = UIColor.colorThree.cgColor
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -184,7 +159,6 @@ class AuthViewController: UIViewController {
                 isKeyboardAppeared = false
             }
         }
-        self.authView.tokenTextField.layer.borderColor = UIColor.colorTwo.cgColor
     }
 }
 
@@ -197,7 +171,6 @@ extension AuthViewController: TapButtonAuthVCDelegate {
             switch answer {
             case .success(let token):
                 self?.authView.invalidTokenLabel.isHidden = true
-                KeyValueStorage.userDefaults.setValue(token, forKey: "token")
                 KeyValueStorage.authToken = token
                 let newVC = RepositoriesListViewController()
                 self?.navigationController?.pushViewController(newVC, animated: true)

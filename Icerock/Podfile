@@ -4,6 +4,7 @@ target 'Icerock' do
   use_frameworks!
   pod 'Alamofire'
   pod 'Down'
+  pod 'MaterialComponents/ActivityIndicator'
 
 
 end
